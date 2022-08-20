@@ -9,6 +9,6 @@ class Fasilitas extends BaseController
         $data = [
             'title' => 'Data Fasilitas'
         ];
-        return view('admin/fasilitas', $data);
+        return view('admin/fasilitas/fasilitas', $data);
     }
 }

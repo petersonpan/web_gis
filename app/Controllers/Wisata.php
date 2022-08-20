@@ -9,6 +9,6 @@ class Wisata extends BaseController
         $data = [
             'title' => 'Data Wisata'
         ];
-        return view('admin/wisata', $data);
+        return view('admin/wisata/wisata', $data);
     }
 }

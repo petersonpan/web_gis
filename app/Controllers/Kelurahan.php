@@ -9,6 +9,6 @@ class Kelurahan extends BaseController
         $data = [
             'title' => 'Data Kelurahan'
         ];
-        return view('admin/kelurahan', $data);
+        return view('admin/kelurahan/kelurahan', $data);
     }
 }

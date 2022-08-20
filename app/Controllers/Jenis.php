@@ -9,6 +9,6 @@ class Jenis extends BaseController
         $data = [
             'title' => 'Data Jenis'
         ];
-        return view('admin/jenis', $data);
+        return view('admin/jenis/jenis', $data);
     }
 }
