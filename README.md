@@ -1,1 +1,1 @@
-# CodeIgniter 4 Application Web Gis PAriwisata
+# CodeIgniter 4 Application Web Gis Pariwisata
