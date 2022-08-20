@@ -6,6 +6,9 @@ class Wisata extends BaseController
 {
     public function index()
     {
-        return view('wisata');
+        $data = [
+            'title' => 'Data Wisata'
+        ];
+        return view('admin/wisata', $data);
     }
 }
