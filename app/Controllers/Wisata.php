@@ -11,4 +11,11 @@ class Wisata extends BaseController
         ];
         return view('admin/wisata/index', $data);
     }
+    public function create()
+    {
+        $data = [
+            'title' => 'Tambah Data Wisata'
+        ];
+        return view('admin/wisata/create', $data);
+    }
 }
