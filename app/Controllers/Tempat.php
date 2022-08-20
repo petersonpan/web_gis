@@ -9,6 +9,6 @@ class Tempat extends BaseController
         $data = [
             'title' => 'Data Tempat'
         ];
-        return view('admin/tempat/tempat', $data);
+        return view('admin/tempat/index', $data);
     }
 }

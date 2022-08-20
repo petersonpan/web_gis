@@ -9,6 +9,6 @@ class Ulasan extends BaseController
         $data = [
             'title' => 'Data Ulasan'
         ];
-        return view('admin/ulasan/ulasan', $data);
+        return view('admin/ulasan/index', $data);
     }
 }
