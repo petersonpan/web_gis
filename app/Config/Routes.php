@@ -70,7 +70,8 @@ $routes->delete('/jenis/(:num)','jenis::delete/$1');
 // kelurahan
  $routes->get('/kelurahan/create',  'kelurahan::create');
  $routes->post('/kelurahan/simpan', 'kelurahan::simpan');
- $routes->post('/kelurahan/update', 'kelurahan::update');
+ $routes->get('/kelurahan/edit/(:segment)', 'kelurahan::edit/$1');
+ $routes->post('/kelurahan/update/(:segment)', 'kelurahan::update/$1');
  $routes->delete('/kelurahan/(:num)','kelurahan::delete/$1');
 // akhir
 

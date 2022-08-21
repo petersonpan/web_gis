@@ -8,26 +8,26 @@ class Kelurahan extends BaseController
     protected $komikModel;
     public function __construct()
     {
-        $this->KelurahanModel = new Mkelurahan();
+        $this->KelurahanModel= new Mkelurahan();
     }
     public function index()
     {
+
+       
         $kelurahan   = $this->KelurahanModel->findAll();
         $data = [
-            'title'     => 'Data kelurahan',
-            'kelurahan' => $kelurahan
+            'title' => 'Data kelurahan',
+           'kelurahan' => $kelurahan
         ];
-
         return view('admin/kelurahan/index', $data);
     }
 
     public function create()
     {
-
+        
         $data = [
-            'title' => 'Tambah Data Kelurahan'
+            'title' => 'Tambah Data kelurahan'
         ];
-
         return view('admin/kelurahan/create', $data);
     }
 
@@ -35,30 +35,42 @@ class Kelurahan extends BaseController
     public function simpan()
     {
 
-
         helper(['form', 'url']);
-        $this->KelurahanModel->save([
+       $this->KelurahanModel->save([
 
-
-            'nama_kecamatan'    => $this->request->getVar('kelurahan'),
-            'keterangan'        => $this->request->getVar('Keterangan')
-        ]);
-        // session()->flashdata('pesan', 'data berhasil di tambah.');
-        return redirect()->to('/kelurahan');
+        'nama_kelurahan'    => $this->request->getVar('kelurahan'),
+        'keterangan'        => $this->request->getVar('Keterangan')
+       ]);
+       
+       return redirect()->to('/kelurahan'); 
     }
 
     public function edit($id)
     {
+        $kelurahan   = $this->KelurahanModel->find($id);
+        $data = [
+            'title' => 'Edit Data kelurahan',
+            'kelurahan' => $kelurahan
+        ];
 
+        return view('admin/kelurahan/update', $data);
+    }
 
-        $this->KelurahanModel->update($id);
-
-        return redirect()->to('/kelurahan');
+    public function update($id)
+    {
+        helper(['form', 'url']);
+        $this->KelurahanModel->update($id,[
+ 
+         'nama_kelurahan'    => $this->request->getVar('kelurahan'),
+         'keterangan'        => $this->request->getVar('Keterangan')
+        ]);
+     return redirect()->to('/kelurahan'); 
     }
 
     public function delete($id)
     {
+        
         $this->KelurahanModel->delete($id);
-        return redirect()->to('/kelurahan');
+        return redirect()->to('/kelurahan'); 
     }
 }
