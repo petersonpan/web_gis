@@ -7,7 +7,7 @@ use App\Models\ModelFasilitas;
 
 class Fasilitas extends BaseController
 {
-    protected $komikModel;
+    protected $fasilitas;
     public function __construct()
     {
         $this->fasilitasModel = new ModelFasilitas();
@@ -16,7 +16,7 @@ class Fasilitas extends BaseController
     {
 
 
-        $fasilitas   = $this->FasilitasModel->findAll();
+        $fasilitas   = $this->fasilitasModel->findAll();
         $data = [
             'title' => 'Data fasilitas',
             'fasilitas' => $fasilitas
