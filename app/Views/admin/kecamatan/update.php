@@ -8,16 +8,16 @@
             <div class="bg-light rounded h-100 p-4">
                 <h4 class="mb-4"><?php echo $title ?></h4>
 
-                <form action="/kecamatan/simpan" method="post">
+                <form action="/kecamatan/update/<?= $kecamatan['id_kecamatan']; ?>" method="post">
                 <?= csrf_field(); ?>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Nama Kecamatan</label>
-                        <input type="text" class="form-control" value="" id="kecamatan" name="kecamatan" aria-describedby="emailHelp">
+                        <input type="text" class="form-control" value="<?= $kecamatan['nama_kecamatan']; ?>" id="kecamatan" name="kecamatan" aria-describedby="emailHelp">
                     </div>
 
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Keterangan</label>
-                        <input type="text" class="form-control" value="" name="Keterangan" id="Keterangan">
+                        <input type="text" class="form-control" value="<?= $kecamatan['keterangan']; ?>" name="Keterangan" id="Keterangan">
                     </div>
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </form>
