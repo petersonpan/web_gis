@@ -49,7 +49,6 @@ class TempatWisata extends Migration
         ]);
 
         $this->forge->addKey('id_tempat',TRUE);
-        $this->forge->addForeignKey('id_kecamatan','kecamatan','id_kecamatan');
         $this->forge->createTable('tempat_wisata',TRUE);
     }
 
