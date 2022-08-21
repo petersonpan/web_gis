@@ -63,7 +63,7 @@ class Kecamatan extends BaseController
     public function update($id)
     {
         helper(['form', 'url']);
-        $this->KecamatanModel->save($id,[
+        $this->KecamatanModel->update($id,[
  
          'nama_kecamatan'    => $this->request->getVar('kecamatan'),
          'keterangan'        => $this->request->getVar('Keterangan')
