@@ -8,7 +8,8 @@
         <div class="col-12">
             <div class="bg-light rounded h-100 p-4">
 
-                <h4 class="mb-9"><?php echo $title ?> <a href="#" class="btn btn-success rounded-pill m-2 btn-sm">+
+                <h4 class="mb-9"><?php echo $title ?> <a href="/tempat/create"
+                        class="btn btn-success rounded-pill m-2 btn-sm">+
                         Tambah</a>
                 </h4>
 
@@ -16,43 +17,35 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">First Name</th>
-                                <th scope="col">Last Name</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Country</th>
-                                <th scope="col">ZIP</th>
-                                <th scope="col">Status</th>
+                                <th scope="col">No</th>
+                                <th scope="col">Nama Tempat</th>
+                                <th scope="col">Nama Kecamatan</th>
+                                <th scope="col">Keterangan</th>
+                                <th scope="col">Jarak</th>
+                                <th scope="col">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
+                            <?php $i = 1; ?>
+                            <?php foreach ($tempat_wisata as $k) : ?>
                             <tr>
-                                <th scope="row">1</th>
-                                <td>John</td>
-                                <td>Doe</td>
-                                <td>jhon@email.com</td>
-                                <td>USA</td>
-                                <td>123</td>
-                                <td>Member</td>
+                                <th scope="row"><?= $i++; ?></th>
+                                <td><?= $k['nama_tempat']; ?> </td>
+                                <td><?= $k['nama_kecamatan']; ?></td>
+                                <td><?= $k['keterangan_tempat']; ?></td>
+                                <td><?= $k['jarak']; ?></td>
+                                <td>
+
+                                    <a href="/tempat/edit/<?= $k['id_tempat']; ?>" class="btn btn-primary">Edit</a>
+                                    <form action="/tempat/<?= $k['id_tempat']; ?>" class="d-inline" method="post">
+                                        <?= csrf_field(); ?>
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <button type="submit" class="btn btn-danger">Hapus</button>
+                                    </form>
+                                </td>
                             </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>mark@email.com</td>
-                                <td>UK</td>
-                                <td>456</td>
-                                <td>Member</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>jacob@email.com</td>
-                                <td>AU</td>
-                                <td>789</td>
-                                <td>Member</td>
-                            </tr>
+
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>

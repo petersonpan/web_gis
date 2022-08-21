@@ -36,6 +36,7 @@ class Kecamatan extends BaseController
     public function simpan()
     {
 
+
         helper(['form', 'url']);
        $this->KecamatanModel->save([
 
@@ -44,6 +45,7 @@ class Kecamatan extends BaseController
        ]);
        
        return redirect()->to('/kecamatan'); 
+
     }
 
     public function edit($id)
@@ -53,6 +55,7 @@ class Kecamatan extends BaseController
             'title' => 'Edit Data Kecamatan',
             'kecamatan' => $kecamatan
         ];
+
 
         return view('admin/kecamatan/update', $data);
     }
@@ -66,6 +69,7 @@ class Kecamatan extends BaseController
          'keterangan'        => $this->request->getVar('Keterangan')
         ]);
      return redirect()->to('/kecamatan'); 
+
     }
 
     public function delete($id)

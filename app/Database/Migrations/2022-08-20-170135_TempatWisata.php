@@ -11,36 +11,36 @@ class TempatWisata extends Migration
         $this->forge->AddField([
 
             'id_tempat'          => [
-            'type'              => 'INT',
-            'constraint'        => 5,
-            'unsigned'          =>true,
-            'auto_increment'    =>true
+                'type'              => 'INT',
+                'constraint'        => 5,
+                'unsigned'          => true,
+                'auto_increment'    => true
             ],
 
             'nama_tempat'        => [
                 'type'          => 'VARCHAR',
                 'constraint'    => 50,
-                ],
+            ],
             'id_kecamatan'        => [
                 'type'          => 'BIGINT',
                 'constraint'    => '5',
                 'unsigned'      => true,
-                ],    
-            'keterangan'        => [
+            ],
+            'keterangan_tempat'        => [
                 'type'          => 'text',
                 'null'          => true,
-                ],   
-                
-            'jarak' =>[
-                'type' =>'text',
-                'null' =>true
+            ],
+
+            'jarak' => [
+                'type' => 'text',
+                'null' => true
             ],
 
             'created_at' => [
                 'type' => 'DATETIME',
                 'NULL' => true,
             ],
-            
+
             'updated_at' => [
                 'type' => 'DATETIME',
                 'NULL' => true,
@@ -48,8 +48,9 @@ class TempatWisata extends Migration
 
         ]);
 
-        $this->forge->addKey('id_tempat',TRUE);
-        $this->forge->createTable('tempat_wisata',TRUE);
+
+        $this->forge->addKey('id_tempat', TRUE);
+        $this->forge->createTable('tempat_wisata', TRUE);
     }
 
     public function down()
@@ -57,5 +58,3 @@ class TempatWisata extends Migration
         $this->forge->dropTable('tempat_wisata');
     }
 }
-
-

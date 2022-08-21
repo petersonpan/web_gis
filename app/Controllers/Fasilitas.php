@@ -14,9 +14,7 @@ class Fasilitas extends BaseController
     }
     public function index()
     {
-
-
-        $fasilitas   = $this->fasilitasModel->findAll();
+        $fasilitas   = $this->FasilitasModel->findAll();
         $data = [
             'title' => 'Data fasilitas',
             'fasilitas' => $fasilitas
@@ -32,7 +30,6 @@ class Fasilitas extends BaseController
         ];
         return view('admin/fasilitas/create', $data);
     }
-
 
     public function simpan()
     {
