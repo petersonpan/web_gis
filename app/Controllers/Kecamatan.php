@@ -49,7 +49,9 @@ class Kecamatan extends BaseController
     public function edit($id)
     {
 
-        $this->KecamatanModel->delete($id);
+
+        $this->KecamatanModel->update($id);
+
         return redirect()->to('/kecamatan');
     }
 
