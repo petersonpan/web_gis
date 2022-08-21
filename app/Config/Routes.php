@@ -51,6 +51,14 @@ $routes->post('/kecamatan/update/(:segment)', 'Kecamatan::update/$1');
 $routes->delete('/kecamatan/(:num)','Kecamatan::delete/$1'); 
 // akhir
 
+// jenis
+$routes->get('/jenis/create', 'jenis::create'); 
+$routes->post('/jenis/simpan', 'jenis::simpan'); 
+$routes->get('/jenis/edit/(:segment)', 'jenis::edit/$1'); 
+$routes->post('/jenis/update/(:segment)', 'jenis::update/$1'); 
+$routes->delete('/jenis/(:num)','jenis::delete/$1'); 
+// akhir
+
 // kelurahan
 $routes->get('/kecamatan/create', 'Kecamatan::create'); 
 $routes->post('/kecamatan/simpan', 'Kecamatan::simpan'); 

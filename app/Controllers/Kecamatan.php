@@ -36,7 +36,6 @@ class Kecamatan extends BaseController
     public function simpan()
     {
 
-        helper(['form', 'url']);
        $this->KecamatanModel->save([
 
         'nama_kecamatan'    => $this->request->getVar('kecamatan'),
@@ -59,8 +58,8 @@ class Kecamatan extends BaseController
     public function update($id)
     {
             helper(['form', 'url']);
-            $this->KecamatanModel->save([
-                'id'                =>$id,
+            $this->KecamatanModel->update($id,[
+                
                 'nama_kecamatan'    => $this->request->getVar('kecamatan'),
                 'keterangan'        => $this->request->getVar('Keterangan')
             ]);
