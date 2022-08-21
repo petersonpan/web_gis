@@ -2,13 +2,61 @@
 
 namespace App\Controllers;
 
+use App\Models\Mkecamatan;
+
 class Kecamatan extends BaseController
 {
+    protected $komikModel;
+    public function __construct()
+    {
+        $this->KecamatanModel = new Mkecamatan();
+    }
     public function index()
     {
+
+
+        $kecamatan   = $this->KecamatanModel->findAll();
         $data = [
-            'title' => 'Data Kecamatan'
+            'title' => 'Data Kecamatan',
+            'kecamatan' => $kecamatan
         ];
         return view('admin/kecamatan/index', $data);
+    }
+
+    public function create()
+    {
+
+        $data = [
+            'title' => 'Tambah Data Kecamatan'
+        ];
+        return view('admin/kecamatan/create', $data);
+    }
+
+
+    public function simpan()
+    {
+
+        helper(['form', 'url']);
+        $this->KecamatanModel->save([
+
+            'nama_kecamatan'    => $this->request->getVar('kecamatan'),
+            'keterangan'        => $this->request->getVar('Keterangan')
+        ]);
+        session()->flashdata('pesan', 'data berhasil di tambah.');
+        return redirect()->to('admin/kecamatan/index');
+    }
+
+    public function edit($id)
+    {
+
+        $this->KecamatanModel->delete($id);
+        return redirect()->to('/kecamatan');
+    }
+
+    public function delete($id)
+    {
+
+        $this->KecamatanModel->delete($id);
+        return redirect()->to('/kecamatan');
     }
 }

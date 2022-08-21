@@ -36,15 +36,40 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
+
 $routes->get('/wisata', 'Wisata::index');
 $routes->get('/create', 'Wisata::create');
 $routes->get('/fasilitas', 'Fasilitas::index');
-$routes->get('/tempat', 'Tempat::index');
+$routes->get('/tempat',    'Tempat::index');
 $routes->get('/kelurahan', 'Kelurahan::index');
 $routes->get('/kecamatan', 'Kecamatan::index');
-$routes->get('/jenis', 'Jenis::index');
-$routes->get('/admin', 'Admin::index');
-$routes->get('/ulasan', 'Ulasan::index');
+
+// fasilitas
+$routes->get('/fasilitas/create', 'Fasilitas::create');
+$routes->post('/fasilitas/simpan', 'Fasilitas::simpan');
+$routes->get('/fasilitas/edit/(:segment)', 'Fasilitas::edit/$1');
+$routes->post('/fasilitas/update/(:segment)', 'Fasilitas::update/$1');
+$routes->delete('/fasilitas/(:num)', 'Fasilitas::delete/$1');
+
+// kecamatan
+$routes->get('/kecamatan/create', 'Kecamatan::create');
+$routes->post('/kecamatan/simpan', 'Kecamatan::simpan');
+$routes->get('/kecamatan/edit/(:segment)', 'Kecamatan::edit/$1');
+$routes->post('/kecamatan/update/(:segment)', 'Kecamatan::update/$1');
+$routes->delete('/kecamatan/(:num)', 'Kecamatan::delete/$1');
+// akhir
+
+// kelurahan
+$routes->get('/kecamatan/create', 'Kecamatan::create');
+$routes->post('/kecamatan/simpan', 'Kecamatan::simpan');
+$routes->post('/kecamatan/update', 'Kecamatan::update');
+$routes->delete('/kecamatan/(:num)', 'Kecamatan::delete/$1');
+// akhir
+
+$routes->get('/jenis',     'Jenis::index');
+$routes->get('/admin',     'Admin::index');
+$routes->get('/ulasan',    'Ulasan::index');
+
 
 /*
  * --------------------------------------------------------------------

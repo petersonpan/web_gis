@@ -7,30 +7,57 @@ use App\Models\ModelFasilitas;
 
 class Fasilitas extends BaseController
 {
+    protected $komikModel;
+    public function __construct()
+    {
+        $this->fasilitasModel = new ModelFasilitas();
+    }
     public function index()
     {
-        $fasilitas = new ModelFasilitas();
+
+
+        $fasilitas   = $this->FasilitasModel->findAll();
         $data = [
-            'tampildata' => $fasilitas->findAll(),
-            'title' => 'Data Fasilitas'
+            'title' => 'Data fasilitas',
+            'fasilitas' => $fasilitas
         ];
         return view('admin/fasilitas/index', $data);
     }
-    public function store()
+
+    public function create()
+    {
+
+        $data = [
+            'title' => 'Tambah Data Fasilitas'
+        ];
+        return view('admin/fasilitas/create', $data);
+    }
+
+
+    public function simpan()
     {
 
         helper(['form', 'url']);
+        $this->fasilitasModel->save([
 
-        $model = new ModelFasilitas();
+            'nama_fasilitas'    => $this->request->getVar('fasilitas'),
+            'keterangan'        => $this->request->getVar('Keterangan')
+        ]);
+        session()->flashdata('pesan', 'data berhasil di tambah.');
+        return redirect()->to('admin/fasilitas/index');
+    }
 
-        $data = [
-            'first_name' => $this->request->getVar('txtFname'),
-            'last_name'  => $this->request->getVar('txtLname'),
-            'address'  => $this->request->getVar('txtAddress'),
-            'email'  => $this->request->getVar('txtEmail'),
-            'mobile'  => $this->request->getVar('txtMobile'),
-        ];
-        $save = $model->insert($data);
-        return redirect()->to(base_url('student'));
+    public function edit($id)
+    {
+
+        $this->fasilitasModel->delete($id);
+        return redirect()->to('/fasilitas');
+    }
+
+    public function delete($id)
+    {
+
+        $this->fasilitasModel->delete($id);
+        return redirect()->to('/fasilitas');
     }
 }
