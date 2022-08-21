@@ -51,6 +51,13 @@ $routes->get('/fasilitas/edit/(:segment)', 'Fasilitas::edit/$1');
 $routes->post('/fasilitas/update/(:segment)', 'Fasilitas::update/$1');
 $routes->delete('/fasilitas/(:num)', 'Fasilitas::delete/$1');
 
+// fasilitas
+$routes->get('/wisata/create', 'Wisata::create');
+$routes->post('/wisata/simpan', 'Wisata::simpan');
+$routes->get('/wisata/edit/(:segment)', 'Wisata::edit/$1');
+$routes->post('/wisata/update/(:segment)', 'Wisata::update/$1');
+$routes->delete('/wisata/(:num)', 'Wisata::delete/$1');
+
 // Tempat
 $routes->get('/tempat/create', 'Tempat::create');
 $routes->post('/tempat/simpan', 'Tempat::simpan');
@@ -76,11 +83,11 @@ $routes->delete('/jenis/(:num)', 'jenis::delete/$1');
 // akhir
 
 // kelurahan
- $routes->get('/kelurahan/create',  'kelurahan::create');
- $routes->post('/kelurahan/simpan', 'kelurahan::simpan');
- $routes->get('/kelurahan/edit/(:segment)', 'kelurahan::edit/$1');
- $routes->post('/kelurahan/update/(:segment)', 'kelurahan::update/$1');
- $routes->delete('/kelurahan/(:num)','kelurahan::delete/$1');
+$routes->get('/kelurahan/create',  'kelurahan::create');
+$routes->post('/kelurahan/simpan', 'kelurahan::simpan');
+$routes->get('/kelurahan/edit/(:segment)', 'kelurahan::edit/$1');
+$routes->post('/kelurahan/update/(:segment)', 'kelurahan::update/$1');
+$routes->delete('/kelurahan/(:num)', 'kelurahan::delete/$1');
 // akhir
 
 $routes->get('/jenis',     'Jenis::index');

@@ -18,12 +18,15 @@
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">First Name</th>
-                                <th scope="col">Last Name</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Country</th>
-                                <th scope="col">ZIP</th>
-                                <th scope="col">Status</th>
+                                <th scope="col">Nama Wisata</th>
+                                <th scope="col">Jenis Wisata</th>
+                                <th scope="col">Nama Tempat</th>
+                                <th scope="col">Fasilitas</th>
+                                <th scope="col">Longitude</th>
+                                <th scope="col">Latitude</th>
+                                <th scope="col">Foto</th>
+                                <th scope="col">Keterangan</th>
+
                             </tr>
                         </thead>
                         <tbody>
