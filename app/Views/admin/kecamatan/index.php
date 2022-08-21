@@ -31,7 +31,7 @@
                                 <td><?= $k['keterangan']; ?></td>
                                 <td>
 
-                                    <a href="/kecamatan/<?=$k['id_kecamatan'];?>" class="btn btn-primary">Edit</a>
+                                    <a href="/kecamatan/edit/<?=$k['id_kecamatan'];?>" class="btn btn-primary">Edit</a>
                                     <form action="/kecamatan/<?=$k['id_kecamatan'];?>" class="d-inline" method="post">
                                     <?= csrf_field();?>
                                     <input type="hidden" name="_method" value="DELETE">

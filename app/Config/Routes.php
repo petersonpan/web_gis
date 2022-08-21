@@ -43,10 +43,20 @@ $routes->get('/fasilitas', 'Fasilitas::index');
 $routes->get('/tempat',    'Tempat::index');
 $routes->get('/kelurahan', 'Kelurahan::index');
 $routes->get('/kecamatan', 'Kecamatan::index');
+// kecamatan
+$routes->get('/kecamatan/create', 'Kecamatan::create'); 
+$routes->post('/kecamatan/simpan', 'Kecamatan::simpan'); 
+$routes->get('/kecamatan/edit/(:segment)', 'Kecamatan::edit/$1'); 
+$routes->post('/kecamatan/update/(:segment)', 'Kecamatan::update/$1'); 
+$routes->delete('/kecamatan/(:num)','Kecamatan::delete/$1'); 
+// akhir
+
+// kelurahan
 $routes->get('/kecamatan/create', 'Kecamatan::create'); 
 $routes->post('/kecamatan/simpan', 'Kecamatan::simpan'); 
 $routes->post('/kecamatan/update', 'Kecamatan::update'); 
 $routes->delete('/kecamatan/(:num)','Kecamatan::delete/$1'); 
+// akhir
 
 $routes->get('/jenis',     'Jenis::index');
 $routes->get('/admin',     'Admin::index');
