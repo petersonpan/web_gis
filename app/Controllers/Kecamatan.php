@@ -50,7 +50,7 @@ class Kecamatan extends BaseController
     {
 
 
-        $this->KecamatanModel->delete($id);
+        $this->KecamatanModel->update($id);
         return redirect()->to('/kecamatan');
 
     }
