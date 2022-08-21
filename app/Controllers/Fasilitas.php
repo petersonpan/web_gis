@@ -10,7 +10,7 @@ class Fasilitas extends BaseController
     protected $fasilitas;
     public function __construct()
     {
-        $this->fasilitasModel = new ModelFasilitas();
+        $this->FasilitasModel = new ModelFasilitas();
     }
     public function index()
     {
@@ -38,26 +38,36 @@ class Fasilitas extends BaseController
     {
 
         helper(['form', 'url']);
-        $this->fasilitasModel->save([
-
-            'nama_fasilitas'    => $this->request->getVar('fasilitas'),
-            'keterangan'        => $this->request->getVar('Keterangan')
+        $this->FasilitasModel->save([
+            'keterangan'        => $this->request->getVar('keterangan')
         ]);
-        session()->flashdata('pesan', 'data berhasil di tambah.');
-        return redirect()->to('admin/fasilitas/index');
+        // session()->flashdata('pesan', 'data berhasil di tambah.');
+        return redirect()->to('/fasilitas');
     }
 
     public function edit($id)
     {
 
-        $this->fasilitasModel->delete($id);
+        $fasilitas   = $this->FasilitasModel->find($id);
+        $data = [
+            'title' => 'Edit Data Fasilitas',
+            'fasilitas' => $fasilitas
+        ];
+
+        return view('admin/fasilitas/update', $data);
+    }
+    public function update($id)
+    {
+        helper(['form', 'url']);
+        $this->FasilitasModel->update($id, [
+            'keterangan'        => $this->request->getVar('Keterangan')
+        ]);
         return redirect()->to('/fasilitas');
     }
-
     public function delete($id)
     {
 
-        $this->fasilitasModel->delete($id);
+        $this->FasilitasModel->delete($id);
         return redirect()->to('/fasilitas');
     }
 }

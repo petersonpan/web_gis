@@ -8,7 +8,8 @@
         <div class="col-12">
             <div class="bg-light rounded h-100 p-4">
 
-                <h4 class="mb-9"><?php echo $title ?> <a href="#" class="btn btn-success rounded-pill m-2 btn-sm">+
+                <h4 class="mb-9"><?php echo $title ?> <a href="/fasilitas/create"
+                        class="btn btn-success rounded-pill m-2 btn-sm">+
                         Tambah</a>
                 </h4>
 
@@ -16,21 +17,30 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
+                                <th scope="col">No</th>
                                 <th scope="col">Keterangan</th>
-
+                                <th scope="col">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
+                            <?php $i = 1; ?>
                             <?php
-                            foreach ($tampildata as $sd) {
+
+                            foreach ($fasilitas as $k) {
                             ?>
                             <tr>
-                                <td><?php echo $sd['keterangan']; ?></td>
+                                <td><?= $i++; ?></td>
+                                <td><?php echo $k['keterangan']; ?></td>
 
-                                <td><a
-                                        href="<?php echo base_url(); ?>/student/edit/<?php echo $sd['id_fasilitas']; ?>">Edit</a>&nbsp;<a
-                                        href="<?php echo base_url(); ?>/student/delete/<?php echo $sd['id_fasilitas']; ?>">Delete</a>
+
+                                <td>
+                                    <a href="/fasilitas/edit/<?= $k['id_fasilitas']; ?>"
+                                        class="btn btn-primary">Edit</a>
+                                    <form action="/fasilitas/<?= $k['id_fasilitas']; ?>" class="d-inline" method="post">
+                                        <?= csrf_field(); ?>
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <button type="submit" class="btn btn-danger">Hapus</button>
+                                    </form>
                                 </td>
                             </tr>
                             <?php
