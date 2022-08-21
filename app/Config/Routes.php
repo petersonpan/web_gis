@@ -68,10 +68,10 @@ $routes->delete('/jenis/(:num)','jenis::delete/$1');
 // akhir
 
 // kelurahan
-// $routes->get('/kecamatan/create', 'Kecamatan::create');
-// $routes->post('/kecamatan/simpan', 'Kecamatan::simpan');
-// $routes->post('/kecamatan/update', 'Kecamatan::update');
-// $routes->delete('/kecamatan/(:num)', 'Kecamatan::delete/$1');
+ $routes->get('/kelurahan/create',  'kelurahan::create');
+ $routes->post('/kelurahan/simpan', 'kelurahan::simpan');
+ $routes->post('/kelurahan/update', 'kelurahan::update');
+ $routes->delete('/kelurahan/(:num)','kelurahan::delete/$1');
 // akhir
 
 $routes->get('/jenis',     'Jenis::index');
