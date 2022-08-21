@@ -36,14 +36,19 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-$routes->get('/wisata', 'Wisata::index');
+$routes->get('/wisata',    'Wisata::index');
 $routes->get('/fasilitas', 'Fasilitas::index');
-$routes->get('/tempat', 'Tempat::index');
+$routes->get('/tempat',    'Tempat::index');
 $routes->get('/kelurahan', 'Kelurahan::index');
 $routes->get('/kecamatan', 'Kecamatan::index');
-$routes->get('/jenis', 'Jenis::index');
-$routes->get('/admin', 'Admin::index');
-$routes->get('/ulasan', 'Ulasan::index');
+$routes->get('/kecamatan/create', 'Kecamatan::create'); 
+$routes->post('/kecamatan/simpan', 'Kecamatan::simpan'); 
+$routes->post('/kecamatan/update', 'Kecamatan::update'); 
+$routes->delete('/kecamatan/(:num)','Kecamatan::delete/$1'); 
+
+$routes->get('/jenis',     'Jenis::index');
+$routes->get('/admin',     'Admin::index');
+$routes->get('/ulasan',    'Ulasan::index');
 
 /*
  * --------------------------------------------------------------------
