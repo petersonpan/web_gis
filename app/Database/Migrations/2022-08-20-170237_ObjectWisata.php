@@ -11,68 +11,67 @@ class ObjectWisata extends Migration
         $this->forge->AddField([
 
             'id_wisata'             => [
-            'type'                  => 'INT',
-            'constraint'            => 5,
-            'unsigned'              =>true,
-            'auto_increment'        =>true
+                'type'                  => 'INT',
+                'constraint'            => 5,
+                'unsigned'              => true,
+                'auto_increment'        => true
             ],
 
             'nama_wisata'           => [
                 'type'              => 'VARCHAR',
                 'constraint'        => 50,
-                ],
+            ],
 
             'id_jenis'              => [
                 'type'              => 'BIGINT',
                 'constraint'        => '5',
                 'unsigned'          => true,
-                ],  
+            ],
             'id_tempat'             => [
                 'type'              => 'BIGINT',
                 'constraint'        => '5',
                 'unsigned'          => true,
-                ],
-                
+            ],
+
             'id_fasilitas'          => [
                 'type'              => 'BIGINT',
                 'constraint'        => '5',
                 'unsigned'          => true,
-                ], 
+            ],
 
-             'Longitude'             => [
-                 'type'             => 'VARCHAR',
-                 'constraint'       => 50,
-               ],
+            'longitude'             => [
+                'type'             => 'VARCHAR',
+                'constraint'       => 50,
+            ],
 
-            'Latitude'              => [
-                 'type'             => 'VARCHAR',
-                 'constraint'       => 50,
-               ],
+            'latitude'              => [
+                'type'             => 'VARCHAR',
+                'constraint'       => 50,
+            ],
 
             'foto'                  => [
                 'type'              => 'VARCHAR',
                 'constraint'        => 50,
             ],
 
-             'keterangan'           => [
+            'keterangan'           => [
                 'type'              => 'TEXT',
                 'null'              => true,
-                ], 
+            ],
 
             'created_at'            => [
                 'type'              => 'DATETIME',
                 'null'              => true,
             ],
-            
+
             'updated_at'            => [
                 'type'              => 'DATETIME',
                 'null'              => true,
-            ], 
+            ],
         ]);
 
-        $this->forge->addKey('id_wisata',TRUE);
-        $this->forge->createTable('object_wisata',TRUE);
-       
+        $this->forge->addKey('id_wisata', TRUE);
+        $this->forge->createTable('object_wisata', TRUE);
     }
 
     public function down()
