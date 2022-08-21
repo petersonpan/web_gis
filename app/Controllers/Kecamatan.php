@@ -42,17 +42,15 @@ class Kecamatan extends BaseController
             'nama_kecamatan'    => $this->request->getVar('kecamatan'),
             'keterangan'        => $this->request->getVar('Keterangan')
         ]);
-        session()->flashdata('pesan', 'data berhasil di tambah.');
+        // session()->flashdata('pesan', 'data berhasil di tambah.');
         return redirect()->to('/kecamatan');
     }
 
     public function edit($id)
     {
 
-
         $this->KecamatanModel->delete($id);
         return redirect()->to('/kecamatan');
-
     }
 
     public function delete($id)

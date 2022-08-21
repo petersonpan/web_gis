@@ -9,11 +9,8 @@ class ModelFasilitas extends Model
 
     protected $table      = 'fasilitas';
     protected $primaryKey = 'id_fasilitas';
-
-
-    protected $createdField  = 'created_at';
-    protected $updatedField  = 'updated_at';
-
+    protected $useTimestamps = true;
+    protected $allowedFields = ['keterangan'];
 
     // function __construct()
     // {
