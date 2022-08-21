@@ -8,11 +8,11 @@
             <div class="bg-light rounded h-100 p-4">
                 <h4 class="mb-4"><?php echo $title ?></h4>
 
-                <form action="/kecamatan/simpan" method="post">
+                <form action="/kelurahan/simpan" method="post">
                 <?= csrf_field(); ?>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Nama Kecamatan</label>
-                        <input type="text" class="form-control" id="kecamatan" name="kecamatan" aria-describedby="emailHelp">
+                        <label for="exampleInputEmail1" class="form-label">Nama Kelurahan</label>
+                        <input type="text" class="form-control" id="kelurahan" name="kelurahan" aria-describedby="emailHelp">
                     </div>
 
                     <div class="mb-3">

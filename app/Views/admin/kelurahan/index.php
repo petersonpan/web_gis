@@ -8,7 +8,7 @@
         <div class="col-12">
             <div class="bg-light rounded h-100 p-4">
 
-                <h4 class="mb-9"><?php echo $title ?> <a href="/kecamatan/create" class="btn btn-success rounded-pill m-2 btn-sm">+
+                <h4 class="mb-9"><?php echo $title ?> <a href="/kelurahan/create" class="btn btn-success rounded-pill m-2 btn-sm">+
                         Tambah</a>
                 </h4>
 
