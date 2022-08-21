@@ -26,15 +26,16 @@
                                 <th scope="col">Latitude</th>
                                 <th scope="col">Foto</th>
                                 <th scope="col">Keterangan</th>
+                                <th scope="col">Aksi</th>
 
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <?php
-                                foreach ($objek_wisata as $sd) {
-                                ?>
+                                <?php $i = 1; ?>
+                                <?php foreach ($objek_wisata as $sd) : ?>
                             <tr>
+                                <th scope="row"><?= $i++; ?></th>
                                 <td><?php echo $sd['nama_wisata']; ?></td>
                                 <td><?php echo $sd['nama_jenis']; ?></td>
                                 <td><?php echo $sd['nama_tempat']; ?></td>
@@ -45,27 +46,17 @@
                                 <td><?php echo $sd['keterangan']; ?></td>
                                 <td>
 
-                                    <a href="/tempat/edit/<?= $k['id_tempat']; ?>" class="btn btn-primary">Edit</a>
-                                    <form action="/tempat/<?= $k['id_tempat']; ?>" class="d-inline" method="post">
+                                    <a href="/tempat/edit/<?= $sd['id_wisata']; ?>" class="btn btn-primary">Edit</a>
+                                    <form action="/tempat/<?= $sd['id_wisata']; ?>" class="d-inline" method="post">
                                         <?= csrf_field(); ?>
                                         <input type="hidden" name="_method" value="DELETE">
                                         <button type="submit" class="btn btn-danger">Hapus</button>
                                     </form>
                                 </td>
-                                <td>
 
-                                    <a href="/tempat/edit/<?= $k['id_tempat']; ?>" class="btn btn-primary">Edit</a>
-                                    <form action="/tempat/<?= $k['id_tempat']; ?>" class="d-inline" method="post">
-                                        <?= csrf_field(); ?>
-                                        <input type="hidden" name="_method" value="DELETE">
-                                        <button type="submit" class="btn btn-danger">Hapus</button>
-                                    </form>
-                                </td>
                             </tr>
-                            <?php
-                                }
-                        ?>
-                            </tr>
+
+                            <?php endforeach; ?>
 
                         </tbody>
                     </table>

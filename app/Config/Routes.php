@@ -51,7 +51,7 @@ $routes->get('/fasilitas/edit/(:segment)', 'Fasilitas::edit/$1');
 $routes->post('/fasilitas/update/(:segment)', 'Fasilitas::update/$1');
 $routes->delete('/fasilitas/(:num)', 'Fasilitas::delete/$1');
 
-// fasilitas
+// wisata
 $routes->get('/wisata/create', 'Wisata::create');
 $routes->post('/wisata/simpan', 'Wisata::simpan');
 $routes->get('/wisata/edit/(:segment)', 'Wisata::edit/$1');
