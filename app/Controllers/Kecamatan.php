@@ -13,8 +13,6 @@ class Kecamatan extends BaseController
     }
     public function index()
     {
-
-
         $kecamatan   = $this->KecamatanModel->findAll();
         $data = [
             'title' => 'Data Kecamatan',
@@ -43,7 +41,7 @@ class Kecamatan extends BaseController
             'keterangan'        => $this->request->getVar('Keterangan')
         ]);
         session()->flashdata('pesan', 'data berhasil di tambah.');
-        return redirect()->to('admin/kecamatan/index');
+        return redirect()->to('/kecamatan');
     }
 
     public function edit($id)
