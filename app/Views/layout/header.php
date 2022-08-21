@@ -67,13 +67,16 @@
                         <a href="/" class="nav-item nav-link active"><i
                                 class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                         <a href="/wisata" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Wisata</a>
-                        <a href="/fasilitas" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Fasilitas</a>
-                        <a href="/tempat" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Tempat</a>
+                        <a href="/fasilitas" class="nav-item nav-link"><i class="fa fa-h-square me-2"></i>Fasilitas
+                            Wisata</a>
+                        <a href="/tempat" class="nav-item nav-link"><i class="fa fa-map-marker me-2"></i>Tempat
+                            Wisata</a>
+                        <a href="/jenis" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Jenis Wisata</a>
                         <a href="/kelurahan" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Kelurahan</a>
                         <a href="/kecamatan" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Kecamatan</a>
-                        <a href="/jenis" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Jenis</a>
-                        <a href="/admin" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Admin</a>
                         <a href="/ulasan" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Ulasan</a>
+                        <a href="/admin" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Admin</a>
+
 
                 </nav>
             </div>
