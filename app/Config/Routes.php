@@ -40,6 +40,7 @@ $routes->get('/', 'Home::index');
 $routes->get('/wisata', 'Wisata::index');
 $routes->get('/create', 'Wisata::create');
 $routes->get('/wisata/map', 'Wisata::map');
+$routes->get('/wisata/create', 'Wisata::create');
 $routes->get('/fasilitas', 'Fasilitas::index');
 $routes->get('/tempat',    'Tempat::index');
 $routes->get('/kelurahan', 'Kelurahan::index');

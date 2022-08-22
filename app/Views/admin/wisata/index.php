@@ -10,6 +10,8 @@
 
                 <h4 class="mb-9"><?php echo $title ?>
                     <a href="/create" class="btn btn-success rounded-pill m-2 btn-sm">+
+                <h4 class="mb-9"><?php echo $title ?> <a href="/wisata/create"
+                        class="btn btn-success rounded-pill m-2 btn-sm">+
                         Tambah</a>
                     <a href="/wisata/map" class="btn btn-outline-success rounded-pill btn-sm"><i class="bi bi-map px-2"></i>
                         Maps</a>
@@ -21,6 +23,7 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Nama Wisata</th>
+
                                 <th scope="col">Jenis Wisata</th>
                                 <th scope="col">Nama Tempat</th>
                                 <th scope="col">Fasilitas</th>
@@ -34,6 +37,7 @@
                         </thead>
                         <tbody>
                             <tr>
+
                                 <?php $i = 1; ?>
                                 <?php foreach ($objek_wisata as $sd) : ?>
                             <tr>
@@ -47,13 +51,13 @@
                                 <td><img src="<?= $sd['foto'] ?>" width="100px" alt=""></td>
                                 <td><?php echo $sd['keterangan']; ?></td>
                                 <td>
-
                                     <a href="/tempat/edit/<?= $sd['id_wisata']; ?>" class="btn btn-primary">Edit</a>
                                     <form action="/tempat/<?= $sd['id_wisata']; ?>" class="d-inline" method="post">
                                         <?= csrf_field(); ?>
                                         <input type="hidden" name="_method" value="DELETE">
                                         <button type="submit" class="btn btn-danger">Hapus</button>
                                     </form>
+
                                 </td>
 
                             </tr>
