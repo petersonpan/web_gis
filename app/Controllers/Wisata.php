@@ -51,22 +51,23 @@ class Wisata extends BaseController
     public function simpan()
     {
 
+        $avatar = $this->request->getFile('foto');
+        $avatar->move(WRITEPATH . 'uploads/wisata');
+
         helper(['form', 'url']);
         $this->Wisatamodel->save([
-
             'nama_wisata'    => $this->request->getVar('nama_wisata'),
             'id_jenis'    => $this->request->getVar('id_jenis'),
             'id_tempat' => $this->request->getVar('id_tempat'),
             'id_fasilitas'        => $this->request->getVar('id_fasilitas'),
             'longitude'        => $this->request->getVar('longitude'),
             'latitude'        => $this->request->getVar('latitude'),
-            'foto'        => $this->request->getVar('foto'),
+            'foto'        => 'uploads/wisata/' . rand(1, 1000) . $avatar->getClientName(),
             'keterangan'        => $this->request->getVar('keterangan'),
 
         ]);
 
-
-        return redirect()->to('/wisata');
+        return redirect()->to('/wisata')->with('error', 'Data tidak berhasil disimpan silahkan cek kembali!');
     }
 
     public function edit($id)
@@ -105,5 +106,16 @@ class Wisata extends BaseController
         $this->Wisatamodel->delete($id);
 
         return redirect()->to('/tempat');
+    }
+
+    public function map()
+    {
+
+        $objek   = $this->Wisatamodel->join('jenis_wisata', 'object_wisata.id_jenis = jenis_wisata.id_jenis')->join('fasilitas', 'object_wisata.id_fasilitas = fasilitas.id_fasilitas')->join('tempat_wisata', 'object_wisata.id_tempat = tempat_wisata.id_tempat')->findAll();
+        $data = [
+            'title' => 'Map Objek Wisata',
+            'objek_wisata' => $objek
+        ];
+        return view('admin/map', $data);
     }
 }

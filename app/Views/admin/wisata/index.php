@@ -8,9 +8,13 @@
         <div class="col-12">
             <div class="bg-light rounded h-100 p-4">
 
+                <h4 class="mb-9"><?php echo $title ?>
+                    <a href="/create" class="btn btn-success rounded-pill m-2 btn-sm">+
                 <h4 class="mb-9"><?php echo $title ?> <a href="/wisata/create"
                         class="btn btn-success rounded-pill m-2 btn-sm">+
                         Tambah</a>
+                    <a href="/wisata/map" class="btn btn-outline-success rounded-pill btn-sm"><i class="bi bi-map px-2"></i>
+                        Maps</a>
                 </h4>
 
                 <div class="table-responsive">
@@ -44,7 +48,7 @@
                                 <td><?php echo $sd['keterangan']; ?></td>
                                 <td><?php echo $sd['longitude']; ?></td>
                                 <td><?php echo $sd['latitude']; ?></td>
-                                <td><?php echo $sd['foto']; ?></td>
+                                <td><img src="<?= $sd['foto'] ?>" width="100px" alt=""></td>
                                 <td><?php echo $sd['keterangan']; ?></td>
                                 <td>
                                     <a href="/tempat/edit/<?= $sd['id_wisata']; ?>" class="btn btn-primary">Edit</a>
@@ -58,7 +62,7 @@
 
                             </tr>
 
-                            <?php endforeach; ?>
+                        <?php endforeach; ?>
 
                         </tbody>
                     </table>
