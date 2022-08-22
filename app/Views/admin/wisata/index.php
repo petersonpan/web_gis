@@ -46,8 +46,8 @@
                                 <td><?php echo $sd['nama_jenis']; ?></td>
                                 <td><?php echo $sd['nama_tempat']; ?></td>
                                 <td><?php echo $sd['keterangan']; ?></td>
-                                <td><?php echo $sd['longitude']; ?></td>
-                                <td><?php echo $sd['latitude']; ?></td>
+                                <td><?php echo $sd['Longitude']; ?></td>
+                                <td><?php echo $sd['Latitude']; ?></td>
                                 <td><img src="<?= $sd['foto'] ?>" width="100px" alt=""></td>
                                 <td><?php echo $sd['keterangan']; ?></td>
                                 <td>

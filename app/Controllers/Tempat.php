@@ -46,9 +46,6 @@ class Tempat extends BaseController
             'keterangan_tempat' => $this->request->getVar('keterangan'),
             'jarak'        => $this->request->getVar('jarak')
         ]);
-
-        
-
         return redirect()->to('/tempat');
     }
 

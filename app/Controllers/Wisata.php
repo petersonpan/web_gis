@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Controllers;
-use App\Models\Mwisata;
 use App\Models\Mtempat;
 use App\Models\Mkecamatan;
 use App\Models\Mwisata;
@@ -51,19 +50,20 @@ class Wisata extends BaseController
     public function simpan()
     {
 
-        $avatar = $this->request->getFile('foto');
-        $avatar->move(WRITEPATH . 'uploads/wisata');
-
-        helper(['form', 'url']);
+        $foto = $this->request->getFile('foto');
+        $foto->move('img');
+        $namafoto=$foto->getName();
+        helper(['form', 'url']); 
         $this->Wisatamodel->save([
-            'nama_wisata'    => $this->request->getVar('nama_wisata'),
-            'id_jenis'    => $this->request->getVar('id_jenis'),
-            'id_tempat' => $this->request->getVar('id_tempat'),
-            'id_fasilitas'        => $this->request->getVar('id_fasilitas'),
-            'longitude'        => $this->request->getVar('longitude'),
-            'latitude'        => $this->request->getVar('latitude'),
-            'foto'        => 'uploads/wisata/' . rand(1, 1000) . $avatar->getClientName(),
-            'keterangan'        => $this->request->getVar('keterangan'),
+
+            'nama_wisata'        => $this->request->getVar('nama_wisata'),
+            'id_jenis'           => $this->request->getVar('id_jenis'),
+            'id_tempat'          => $this->request->getVar('id_tempat'),
+            'id_fasilitas'       => $this->request->getVar('id_fasilitas'),
+            'longitude'          => $this->request->getVar('longitude'),
+            'latitude'           => $this->request->getVar('latitude'),
+            'foto'               => $namafoto,
+            'keterangan'         => $this->request->getVar('keterangan'),
 
         ]);
 
