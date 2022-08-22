@@ -46,9 +46,6 @@ class Tempat extends BaseController
             'keterangan_tempat' => $this->request->getVar('keterangan'),
             'jarak'        => $this->request->getVar('jarak')
         ]);
-
-        
-
         return redirect()->to('/tempat');
     }
 
@@ -62,7 +59,7 @@ class Tempat extends BaseController
             'kecamatan' => $kecamatan
         ];
 
-        return view('admin/tempat/update', $data);
+        return view('admin/tempat/update', $data);  
     }
 
     public function update($id)
@@ -70,10 +67,10 @@ class Tempat extends BaseController
         helper(['form', 'url']);
         $this->tempatmodel->update($id, [
 
-            'nama_tempat'        => $this->request->getVar('tempat'),
-            'id_kecamatan'        => $this->request->getVar('id_kecamatan'),
-            'keterangan_tempat'        => $this->request->getVar('keterangan'),
-            'jarak'        => $this->request->getVar('jarak'),
+            'nama_tempat'            => $this->request->getVar('tempat'),
+            'id_kecamatan'           => $this->request->getVar('id_kecamatan'),
+            'keterangan_tempat'      => $this->request->getVar('keterangan'),
+            'jarak'                  => $this->request->getVar('jarak'),
         ]);
         return redirect()->to('/tempat');
     }

@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Controllers;
-
 use App\Models\Mwisata;
 use App\Models\Mtempat;
 use App\Models\Mkecamatan;
@@ -26,9 +25,8 @@ class Wisata extends BaseController
         $data = [
             'title' => 'Data Objek Wisata',
             'objek_wisata' => $objek
-
         ];
-
+         
         return view('admin/wisata/index', $data);
     }
 
@@ -51,53 +49,67 @@ class Wisata extends BaseController
     public function simpan()
     {
 
-        $avatar = $this->request->getFile('foto');
-        $avatar->move(WRITEPATH . 'uploads/wisata');
-
-        helper(['form', 'url']);
+        $foto = $this->request->getFile('foto');
+        $namafoto= $foto->getRandomName();
+        $foto->move('img',$namafoto);
+        helper(['form', 'url']); 
         $this->Wisatamodel->save([
-            'nama_wisata'    => $this->request->getVar('nama_wisata'),
-            'id_jenis'    => $this->request->getVar('id_jenis'),
-            'id_tempat' => $this->request->getVar('id_tempat'),
-            'id_fasilitas'        => $this->request->getVar('id_fasilitas'),
-            'longitude'        => $this->request->getVar('longitude'),
-            'latitude'        => $this->request->getVar('latitude'),
-            'foto'        => 'uploads/wisata/' . rand(1, 1000) . $avatar->getClientName(),
-            'keterangan'        => $this->request->getVar('keterangan'),
+
+            'nama_wisata'        => $this->request->getVar('nama_wisata'),
+            'id_jenis'           => $this->request->getVar('id_jenis'),
+            'id_tempat'          => $this->request->getVar('id_tempat'),
+            'id_fasilitas'       => $this->request->getVar('id_fasilitas'),
+            'longitude'          => $this->request->getVar('longitude'),
+            'latitude'           => $this->request->getVar('latitude'),
+            'foto'               => $namafoto,
+            'keterangan'         => $this->request->getVar('keterangan'),
 
         ]);
 
-        return redirect()->to('/wisata')->with('error', 'Data tidak berhasil disimpan silahkan cek kembali!');
+         return redirect()->to('/wisata')->with('error', 'Data tidak berhasil disimpan silahkan cek kembali!');
     }
 
     public function edit($id)
     {
-        $kecamatan   = $this->KecamatanModel->findAll();
-        $tempat   = $this->Wisatamodel->join('kecamatan', 'tempat_wisata.id_kecamatan = kecamatan.id_kecamatan')->find($id);
+
+
+        $jenis   = $this->Jenismodel->findAll();
+        $tempat   = $this->tempatmodel->findAll();
+        $fasilitas   = $this->fasilitasmodel->findAll();
+        $objek   = $this->Wisatamodel->join('jenis_wisata', 'object_wisata.id_jenis = jenis_wisata.id_jenis')
+                                     ->join('fasilitas', 'object_wisata.id_fasilitas = fasilitas.id_fasilitas')
+                                     ->join('tempat_wisata', 'object_wisata.id_tempat = tempat_wisata.id_tempat')
+                                     ->where('object_wisata.id_wisata',$id)->find($id);
+
         $data = [
             'title' => 'Edit Data Tempat Wisata',
+            'objek_wisata' => $objek,
+            'jenis' => $jenis,
             'tempat' => $tempat,
-            'kecamatan' => $kecamatan
+            'fasilitas' => $fasilitas
         ];
-
-        return view('admin/tempat/update', $data);
+        return view('admin/wisata/update', $data);
     }
 
     public function update($id)
     {
         helper(['form', 'url']);
+
+        $foto = $this->request->getFile('foto');
+        $namafoto= $foto->getRandomName();
+        $foto->move('img',$namafoto);
         $this->Wisatamodel->update($id, [
 
-            'nama_wisata'    => $this->request->getVar('nama_wisata'),
-            'id_jenis'    => $this->request->getVar('id_jenis'),
-            'id_tempat' => $this->request->getVar('id_tempat'),
+            'nama_wisata'         => $this->request->getVar('nama_wisata'),
+            'id_jenis'            => $this->request->getVar('id_jenis'),
+            'id_tempat'           => $this->request->getVar('id_tempat'),
             'id_fasilitas'        => $this->request->getVar('id_fasilitas'),
-            'longitude'        => $this->request->getVar('longitude'),
-            'latitude'        => $this->request->getVar('latitude'),
-            'foto'        => $this->request->getVar('foto'),
-            'keterangan'        => $this->request->getVar('keterangan'),
+            'longitude'           => $this->request->getVar('longitude'),
+            'latitude'            => $this->request->getVar('latitude'),
+            'foto'                => $namafoto,
+            'keterangan'          => $this->request->getVar('keterangan'),
         ]);
-        return redirect()->to('/tempat');
+        return redirect()->to('/wisata');
     }
 
     public function delete($id)

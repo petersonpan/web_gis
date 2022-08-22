@@ -8,7 +8,7 @@
             <div class="bg-light rounded h-100 p-4">
                 <h4 class="mb-4"><?php echo $title ?></h4>
 
-                    <form action="/tempat/create" enctype="multipart/form-data">
+                    <form action="/tempat/simpan" method="post" >
                                 <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Nama Tempat</label>
                         <input type="text" required required class="form-control" id="nama_tempat" name="nama_tempat"
