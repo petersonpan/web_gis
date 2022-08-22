@@ -10,5 +10,4 @@ class Mjenis extends Model
     protected $primaryKey = 'id_jenis';
     protected $useTimestamps = true;
     protected $allowedFields = ['nama_jenis', 'keterangan'];
-
 }

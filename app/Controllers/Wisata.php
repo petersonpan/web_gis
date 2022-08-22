@@ -25,7 +25,8 @@ class Wisata extends BaseController
         $objek   = $this->Wisatamodel->join('jenis_wisata', 'object_wisata.id_jenis = jenis_wisata.id_jenis')->join('fasilitas', 'object_wisata.id_fasilitas = fasilitas.id_fasilitas')->join('tempat_wisata', 'object_wisata.id_tempat = tempat_wisata.id_tempat')->findAll();
         $data = [
             'title' => 'Data Objek Wisata',
-            'objek_wisata' => $objek
+            'page' => 'wisata',
+            'objek_wisata' => $objek,
 
         ];
 
@@ -39,6 +40,7 @@ class Wisata extends BaseController
         $fasilitas   = $this->fasilitasmodel->findAll();
         $data = [
             'title' => 'Tambah Data Objek Wisata',
+            'page' => 'wisata',
             'jenis' => $jenis,
             'tempat' => $tempat,
             'fasilitas' => $fasilitas
@@ -76,6 +78,7 @@ class Wisata extends BaseController
         $tempat   = $this->Wisatamodel->join('kecamatan', 'tempat_wisata.id_kecamatan = kecamatan.id_kecamatan')->find($id);
         $data = [
             'title' => 'Edit Data Tempat Wisata',
+            'page' => 'wisata',
             'tempat' => $tempat,
             'kecamatan' => $kecamatan
         ];
@@ -102,18 +105,16 @@ class Wisata extends BaseController
 
     public function delete($id)
     {
-
         $this->Wisatamodel->delete($id);
-
         return redirect()->to('/tempat');
     }
 
     public function map()
     {
-
         $objek   = $this->Wisatamodel->join('jenis_wisata', 'object_wisata.id_jenis = jenis_wisata.id_jenis')->join('fasilitas', 'object_wisata.id_fasilitas = fasilitas.id_fasilitas')->join('tempat_wisata', 'object_wisata.id_tempat = tempat_wisata.id_tempat')->findAll();
         $data = [
             'title' => 'Map Objek Wisata',
+            'page' => 'wisata',
             'objek_wisata' => $objek
         ];
         return view('admin/map', $data);
