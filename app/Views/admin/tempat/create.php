@@ -8,9 +8,8 @@
             <div class="bg-light rounded h-100 p-4">
                 <h4 class="mb-4"><?php echo $title ?></h4>
 
-                <form action="/tempat/simpan" method="post">
-                    <?= csrf_field(); ?>
-                    <div class="mb-3">
+                    <form action="/tempat/create" enctype="multipart/form-data">
+                                <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Nama Tempat</label>
                         <input type="text" required required class="form-control" id="nama_tempat" name="nama_tempat"
                             aria-describedby="emailHelp">
@@ -40,9 +39,20 @@
                         <label for="exampleInputPassword1" class="form-label">Jarak</label>
                         <input type="text" class="form-control" required name="jarak" id="Jarak">
                     </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">longitude</label>
+                        <input type="text"  class="form-control" required name="longitude" id="longitude">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Latitude</label>
+                        <input type="text" class="form-control" required name="Upload" id="Upload">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Upload Gambar</label>
+                        <input type="file"class="form-control" required name="Upload" id="Upload">
+                    </div>
                     <button type="submit" class="btn btn-primary">Simpan</button>
-                </form>
-
+                   </form>
             </div>
 
         </div>
