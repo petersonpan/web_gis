@@ -8,7 +8,7 @@
             <div class="bg-light rounded h-100 p-4">
                 <h4 class="mb-4"><?php echo $title ?></h4>
 
-                <form method="post" action="/wisata/update" enctype="multipart/form-data">
+                <form method="post" action="/wisata/update/<?=$objek_wisata['id_wisata'];?>" enctype="multipart/form-data">
                     <?= csrf_field(); ?>
 
                     <div class="mb-3">

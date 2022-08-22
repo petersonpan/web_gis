@@ -109,7 +109,7 @@ class Wisata extends BaseController
             'foto'                => $namafoto,
             'keterangan'          => $this->request->getVar('keterangan'),
         ]);
-        return redirect()->to('/tempat');
+        return redirect()->to('/wisata');
     }
 
     public function delete($id)
