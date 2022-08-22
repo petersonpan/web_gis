@@ -30,13 +30,14 @@ class Tempat extends BaseController
             'title' => 'Tambah Data Tempat Wisata',
             'kecamatan' => $kecamatan
         ];
+       
         return view('admin/tempat/create', $data);
+        $this->load->helper('form_validation');
     }
 
 
     public function simpan()
     {
-
         helper(['form', 'url']);
         $this->tempatmodel->save([
 
@@ -45,6 +46,9 @@ class Tempat extends BaseController
             'keterangan_tempat' => $this->request->getVar('keterangan'),
             'jarak'        => $this->request->getVar('jarak')
         ]);
+
+        
+
         return redirect()->to('/tempat');
     }
 

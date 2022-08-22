@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controllers;
-
+use App\Models\Mwisata;
 use App\Models\Mtempat;
 use App\Models\Mkecamatan;
 use App\Models\Mwisata;
@@ -10,6 +10,7 @@ use App\Models\ModelFasilitas;
 
 class Wisata extends BaseController
 {
+
     protected $tempatmodel;
     public function __construct()
     {
@@ -25,6 +26,7 @@ class Wisata extends BaseController
         $data = [
             'title' => 'Data Objek Wisata',
             'objek_wisata' => $objek
+
         ];
 
         return view('admin/wisata/index', $data);
@@ -43,6 +45,7 @@ class Wisata extends BaseController
         ];
         return view('admin/wisata/create', $data);
     }
+
 
 
     public function simpan()
@@ -100,6 +103,7 @@ class Wisata extends BaseController
     {
 
         $this->Wisatamodel->delete($id);
+
         return redirect()->to('/tempat');
     }
 }
