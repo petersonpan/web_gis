@@ -39,18 +39,6 @@
                         <label for="exampleInputPassword1" class="form-label">Jarak</label>
                         <input type="text" class="form-control" required name="jarak" id="Jarak">
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">longitude</label>
-                        <input type="text"  class="form-control" required name="longitude" id="longitude">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Latitude</label>
-                        <input type="text" class="form-control" required name="Upload" id="Upload">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Upload Gambar</label>
-                        <input type="file"class="form-control" required name="Upload" id="Upload">
-                    </div>
                     <button type="submit" class="btn btn-primary">Simpan</button>
                    </form>
             </div>

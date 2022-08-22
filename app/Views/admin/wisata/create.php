@@ -7,7 +7,8 @@
         <div class="col-12">
             <div class="bg-light rounded h-100 p-4">
                 <h4 class="mb-4"><?php echo $title ?></h4>
-               <?php echo form_open_multipart('tempat/simpan') ?>
+                <form method="post" action="/wisata/simpan" enctype="multipart/form-data">
+                    <?= csrf_field(); ?>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Nama Wisata</label>
                         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -41,7 +42,7 @@
                         <input type="text" class="form-control" id="exampleInputPassword1">
                     </div>
                     <button type="submit" class="btn btn-primary">Simpan</button>
-                    <?php echo form_close() ?>
+                 </form>
                 </form>
             </div>
 

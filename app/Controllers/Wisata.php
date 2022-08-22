@@ -1,14 +1,26 @@
 <?php
 
 namespace App\Controllers;
+use App\Models\Mwisata;
+
 
 class Wisata extends BaseController
 {
+
+    public function __construct()
+    {
+        $this->Ob_Wisata = new Mwisata();
+    }
+
     public function index()
     {
+        $object_wisata   = $this->Ob_Wisata->join('jenis_wisata','jenis_wisata.id_jenis = object_wisata.id_jenis')->findAll();
+
         $data = [
-            'title' => 'Data Wisata'
+            'title' => 'Data Wisata',
+            'Object'=>$object_wisata
         ];
+
         return view('admin/wisata/index', $data);
     }
     public function create()
