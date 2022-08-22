@@ -19,36 +19,46 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Nama Wisata</th>
-                                <th scope="col">id_jenis</th>
-                                <th scope="col">id_tempat</th>
-                                <th scope="col">id_fasilitas</th>
+
+                                <th scope="col">Jenis Wisata</th>
+                                <th scope="col">Nama Tempat</th>
+                                <th scope="col">Fasilitas</th>
                                 <th scope="col">Longitude</th>
-                                <th scope="col">foto</th>
-                                <th scope="col">keterangan</th>
+                                <th scope="col">Latitude</th>
+                                <th scope="col">Foto</th>
+                                <th scope="col">Keterangan</th>
+                                <th scope="col">Aksi</th>
+
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <?php
-                                foreach ($Object as $sd) {
-                                ?>
+
+                                <?php $i = 1; ?>
+                                <?php foreach ($objek_wisata as $sd) : ?>
                             <tr>
+                                <th scope="row"><?= $i++; ?></th>
                                 <td><?php echo $sd['nama_wisata']; ?></td>
-                                <td><?php echo $sd['id_jenis']; ?></td>
-                                <td><?php echo $sd['id_tempat']; ?></td>
-                                <td><?php echo $sd['id_fasilitas']; ?></td>
-                                <td><?php echo $sd['Longitude']; ?></td>
-                                <td><?php echo $sd['Latitude']; ?></td>
+                                <td><?php echo $sd['nama_jenis']; ?></td>
+                                <td><?php echo $sd['nama_tempat']; ?></td>
+                                <td><?php echo $sd['keterangan']; ?></td>
+                                <td><?php echo $sd['longitude']; ?></td>
+                                <td><?php echo $sd['latitude']; ?></td>
                                 <td><?php echo $sd['foto']; ?></td>
-                                <td><a
-                                        href="<?php echo base_url(); ?>/student/edit/<?php echo $sd['id']; ?>">Edit</a>&nbsp;<a
-                                        href="<?php echo base_url(); ?>/student/delete/<?php echo $sd['id']; ?>">Delete</a>
+                                <td><?php echo $sd['keterangan']; ?></td>
+                                <td>
+                                    <a href="/tempat/edit/<?= $sd['id_wisata']; ?>" class="btn btn-primary">Edit</a>
+                                    <form action="/tempat/<?= $sd['id_wisata']; ?>" class="d-inline" method="post">
+                                        <?= csrf_field(); ?>
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <button type="submit" class="btn btn-danger">Hapus</button>
+                                    </form>
+
                                 </td>
+
                             </tr>
-                            <?php
-                                }
-                        ?>
-                            </tr>
+
+                            <?php endforeach; ?>
 
                         </tbody>
                     </table>

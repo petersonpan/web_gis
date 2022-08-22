@@ -7,10 +7,7 @@
         <div class="col-12">
             <div class="bg-light rounded h-100 p-4">
                 <h4 class="mb-4"><?php echo $title ?></h4>
-
-                <form method="post" action="/wisata/simpan" enctype="multipart/form-data">
-                    <?= csrf_field(); ?>
-
+                <form action="/wisata/simpan" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Nama Wisata</label>
                         <input type="text" name="nama_wisata" class="form-control" id="exampleInputEmail1"
@@ -51,7 +48,6 @@
                         </select>
                     </div>
                     <div class="mb-3">
-
                         <label for="exampleInputEmail1" class="form-label">Fasilitas</label>
                         <select class="form-select" required id="floatingSelect" name="id_fasilitas"
                             aria-label="Floating label select example">
@@ -79,14 +75,12 @@
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Foto</label>
                         <input type="file" name="foto" class="form-control" id="exampleInputPassword1">
-
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Keterangan</label>
                         <input type="text" name="keterangan" class="form-control" id="exampleInputPassword1">
                     </div>
                     <button type="submit" class="btn btn-primary">Simpan</button>
-                 </form>
                 </form>
             </div>
 
