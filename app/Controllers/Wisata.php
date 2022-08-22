@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Models\Mwisata;
 use App\Models\Mtempat;
 use App\Models\Mkecamatan;
-use App\Models\Mwisata;
 use App\Models\MJenis;
 use App\Models\ModelFasilitas;
 

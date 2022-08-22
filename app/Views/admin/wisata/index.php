@@ -10,11 +10,10 @@
 
                 <h4 class="mb-9"><?php echo $title ?>
                     <a href="/create" class="btn btn-success rounded-pill m-2 btn-sm">+
-                <h4 class="mb-9"><?php echo $title ?> <a href="/wisata/create"
-                        class="btn btn-success rounded-pill m-2 btn-sm">+
-                        Tambah</a>
-                    <a href="/wisata/map" class="btn btn-outline-success rounded-pill btn-sm"><i class="bi bi-map px-2"></i>
-                        Maps</a>
+                        <a href="/wisata/create" class="btn btn-success rounded-pill m-2 btn-sm">+
+                            Tambah</a>
+                        <a href="/wisata/map" class="btn btn-outline-success rounded-pill btn-sm"><i class="bi bi-map px-2"></i>
+                            Maps</a>
                 </h4>
 
                 <div class="table-responsive">
