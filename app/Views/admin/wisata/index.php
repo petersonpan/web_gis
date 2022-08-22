@@ -44,13 +44,13 @@
                                 <td><?php echo $sd['nama_jenis']; ?></td>
                                 <td><?php echo $sd['nama_tempat']; ?></td>
                                 <td><?php echo $sd['keterangan']; ?></td>
-                                <td><?php echo $sd['longitude']; ?></td>
-                                <td><?php echo $sd['latitude']; ?></td>
-                                <td><img src="<?= $sd['foto'] ?>" width="100px" alt=""></td>
+                                <td><?php echo $sd['Longitude']; ?></td>
+                                <td><?php echo $sd['Latitude']; ?></td>
+                                <td><img src="img/<?= $sd['foto'] ?>" width="100px" alt=""></td>
                                 <td><?php echo $sd['keterangan']; ?></td>
                                 <td>
-                                    <a href="/tempat/edit/<?= $sd['id_wisata']; ?>" class="btn btn-primary">Edit</a>
-                                    <form action="/tempat/<?= $sd['id_wisata']; ?>" class="d-inline" method="post">
+                                    <a href="/wisata/edit/<?= $sd['id_wisata']; ?>" class="btn btn-primary">Edit</a>
+                                    <form action="/wisata/<?= $sd['id_wisata']; ?>" class="d-inline" method="post">
                                         <?= csrf_field(); ?>
                                         <input type="hidden" name="_method" value="DELETE">
                                         <button type="submit" class="btn btn-danger">Hapus</button>
