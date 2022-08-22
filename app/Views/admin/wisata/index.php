@@ -10,11 +10,10 @@
 
                 <h4 class="mb-9"><?php echo $title ?>
                     <a href="/create" class="btn btn-success rounded-pill m-2 btn-sm">+
-                <h4 class="mb-9"><?php echo $title ?> <a href="/wisata/create"
-                        class="btn btn-success rounded-pill m-2 btn-sm">+
-                        Tambah</a>
-                    <a href="/wisata/map" class="btn btn-outline-success rounded-pill btn-sm"><i class="bi bi-map px-2"></i>
-                        Maps</a>
+                        <a href="/wisata/create" class="btn btn-success rounded-pill m-2 btn-sm">+
+                            Tambah</a>
+                        <a href="/wisata/map" class="btn btn-outline-success rounded-pill btn-sm"><i class="bi bi-map px-2"></i>
+                            Maps</a>
                 </h4>
 
                 <div class="table-responsive">
@@ -48,11 +47,11 @@
                                 <td><?php echo $sd['keterangan']; ?></td>
                                 <td><?php echo $sd['Longitude']; ?></td>
                                 <td><?php echo $sd['Latitude']; ?></td>
-                                <td><img src="<?= $sd['foto'] ?>" width="100px" alt=""></td>
+                                <td><img src="img/<?= $sd['foto'] ?>" width="100px" alt=""></td>
                                 <td><?php echo $sd['keterangan']; ?></td>
                                 <td>
-                                    <a href="/tempat/edit/<?= $sd['id_wisata']; ?>" class="btn btn-primary">Edit</a>
-                                    <form action="/tempat/<?= $sd['id_wisata']; ?>" class="d-inline" method="post">
+                                    <a href="/wisata/edit/<?= $sd['id_wisata']; ?>" class="btn btn-primary">Edit</a>
+                                    <form action="/wisata/<?= $sd['id_wisata']; ?>" class="d-inline" method="post">
                                         <?= csrf_field(); ?>
                                         <input type="hidden" name="_method" value="DELETE">
                                         <button type="submit" class="btn btn-danger">Hapus</button>
