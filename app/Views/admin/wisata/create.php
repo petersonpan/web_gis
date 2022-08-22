@@ -10,20 +10,18 @@
                 <form action="/wisata/simpan" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Nama Wisata</label>
-                        <input type="text" name="nama_wisata" class="form-control" id="exampleInputEmail1"
-                            aria-describedby="emailHelp">
+                        <input type="text" name="nama_wisata" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Jenis Wisata</label>
-                        <select class="form-select" required id="floatingSelect" name="id_jenis"
-                            aria-label="Floating label select example">
+                        <select class="form-select" required id="floatingSelect" name="id_jenis" aria-label="Floating label select example">
                             <option selected>-- Pilih Jenis wisata --</option>
                             <?php
                             if (!empty($jenis)) {
                                 foreach ($jenis as $u) {
                             ?>
-                            <option value="<?php echo $u['id_jenis']; ?>"><?php echo $u['nama_jenis']; ?>
-                            </option>
+                                    <option value="<?php echo $u['id_jenis']; ?>"><?php echo $u['nama_jenis']; ?>
+                                    </option>
                             <?php
                                 }
                             }
@@ -32,15 +30,14 @@
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Tempat Wisata</label>
-                        <select class="form-select" required id="floatingSelect" name="id_tempat"
-                            aria-label="Floating label select example">
+                        <select class="form-select" required id="floatingSelect" name="id_tempat" aria-label="Floating label select example">
                             <option selected>-- Pilih Tempat wisata --</option>
                             <?php
                             if (!empty($tempat)) {
                                 foreach ($tempat as $u) {
                             ?>
-                            <option value="<?php echo $u['id_tempat']; ?>"><?php echo $u['nama_tempat']; ?>
-                            </option>
+                                    <option value="<?php echo $u['id_tempat']; ?>"><?php echo $u['nama_tempat']; ?>
+                                    </option>
                             <?php
                                 }
                             }
@@ -49,15 +46,14 @@
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Fasilitas</label>
-                        <select class="form-select" required id="floatingSelect" name="id_fasilitas"
-                            aria-label="Floating label select example">
+                        <select class="form-select" required id="floatingSelect" name="id_fasilitas" aria-label="Floating label select example">
                             <option selected>-- Pilih Fasilitas --</option>
                             <?php
                             if (!empty($fasilitas)) {
                                 foreach ($fasilitas as $u) {
                             ?>
-                            <option value="<?php echo $u['id_fasilitas']; ?>"><?php echo $u['keterangan']; ?>
-                            </option>
+                                    <option value="<?php echo $u['id_fasilitas']; ?>"><?php echo $u['keterangan']; ?>
+                                    </option>
                             <?php
                                 }
                             }

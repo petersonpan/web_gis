@@ -9,23 +9,23 @@ class Kecamatan extends BaseController
     protected $komikModel;
     public function __construct()
     {
-        $this->KecamatanModel= new Mkecamatan();
+        $this->KecamatanModel = new Mkecamatan();
     }
     public function index()
     {
 
-       
+
         $kecamatan   = $this->KecamatanModel->findAll();
         $data = [
             'title' => 'Data Kecamatan',
-           'kecamatan' => $kecamatan
+            'kecamatan' => $kecamatan
         ];
         return view('admin/kecamatan/index', $data);
     }
 
     public function create()
     {
-        
+
         $data = [
             'title' => 'Tambah Data Kecamatan'
         ];
@@ -35,17 +35,14 @@ class Kecamatan extends BaseController
 
     public function simpan()
     {
-
-
         helper(['form', 'url']);
-       $this->KecamatanModel->save([
+        $this->KecamatanModel->save([
 
-        'nama_kecamatan'    => $this->request->getVar('kecamatan'),
-        'keterangan'        => $this->request->getVar('Keterangan')
-       ]);
-       
-       return redirect()->to('/kecamatan'); 
+            'nama_kecamatan'    => $this->request->getVar('kecamatan'),
+            'keterangan'        => $this->request->getVar('Keterangan')
+        ]);
 
+        return redirect()->to('/kecamatan');
     }
 
     public function edit($id)
@@ -63,19 +60,18 @@ class Kecamatan extends BaseController
     public function update($id)
     {
         helper(['form', 'url']);
-        $this->KecamatanModel->update($id,[
- 
-         'nama_kecamatan'    => $this->request->getVar('kecamatan'),
-         'keterangan'        => $this->request->getVar('Keterangan')
-        ]);
-     return redirect()->to('/kecamatan'); 
+        $this->KecamatanModel->update($id, [
 
+            'nama_kecamatan'    => $this->request->getVar('kecamatan'),
+            'keterangan'        => $this->request->getVar('Keterangan')
+        ]);
+        return redirect()->to('/kecamatan');
     }
 
     public function delete($id)
     {
-        
+
         $this->KecamatanModel->delete($id);
-        return redirect()->to('/kecamatan'); 
+        return redirect()->to('/kecamatan');
     }
 }
