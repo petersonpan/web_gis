@@ -20,13 +20,45 @@
     <section class="inner-page">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4">
-                    <div class="card border-0 shadow" style="border-radius: 20px;">
-                        <div class="card-body">
-                            <img src="img/" alt="">
+                <?php
+                foreach ($objek_wisata as $r) {
+                ?>
+                    <div class="col-lg-12 mb-3">
+                        <div class="card border-0 shadow" style="border-radius: 20px;">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <figure style="border-radius: 10px;">
+                                            <img src="<?= base_url() ?>/img/<?= $r['foto'] ?>" style="width: 100%; height: 300px; object-fit: cover;border-radius: 10px;" class="shadow-sm">
+                                        </figure>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <h4><?= $r['nama_wisata'] ?></h4>
+                                        <div class="subtitle mb-3">
+                                            <span class="badge bg-primary"><?= $r['nama_tempat'] ?></span>
+                                            <span class="badge bg-secondary"><?= $r['nama_jenis'] ?></span>
+                                        </div>
+                                        <div>
+                                            <p>
+                                                <?= $r['keterangan'] ?>
+                                            </p>
+                                            <br>
+                                            <p><b>Fasilitas: </b></p>
+                                            <p>
+                                                <?= $r['nama_fasilitas'] ?>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="https://www.google.com/maps?q=<?= $r['longitude'] ?>,<?= $r['latitude'] ?>" target="_blank">
+                                <div class="card-footer text-center" style="color: #333"><i class="bi bi-geo-alt-fill"></i> Lihat Titik</div>
+                            </a>
                         </div>
                     </div>
-                </div>
+                <?php
+                }
+                ?>
             </div>
         </div>
     </section>

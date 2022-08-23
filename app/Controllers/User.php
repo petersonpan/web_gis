@@ -46,4 +46,17 @@ class User extends BaseController
         ];
         return view('user/objek-wisata', $data);
     }
+
+    public function login()
+    {
+        $data = [
+            'title' => 'Login',
+
+        ];
+        return view('login', $data);
+    }
+
+    public function authLogin()
+    {
+    }
 }

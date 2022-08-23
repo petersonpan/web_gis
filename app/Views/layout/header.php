@@ -67,7 +67,7 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="/" class="nav-item nav-link <?= ($page == 'dashboard') ? 'active' : '' ?>"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="/admin" class="nav-item nav-link <?= ($page == 'dashboard') ? 'active' : '' ?>"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <a href="/wisata" class="nav-item nav-link <?= ($page == 'wisata') ? 'active' : '' ?>"><i class="fa fa-th me-2"></i>Wisata</a>
                     <a href="/fasilitas" class="nav-item nav-link <?= ($page == 'fasilitas') ? 'active' : '' ?>"><i class="fa fa-h-square me-2"></i>Fasilitas
                         Wisata</a>

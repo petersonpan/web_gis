@@ -41,6 +41,10 @@ $routes->get('/', 'User::index');
 $routes->get('/map', 'User::map');
 $routes->get('/objek-wisata', 'User::objekWisata');
 
+//LOGIN
+$routes->get('/login', 'User::login');
+$routes->post('/auth/login', 'User::authLogin');
+
 
 $routes->get('/admin', 'Home::index');
 $routes->get('/wisata', 'Wisata::index');
