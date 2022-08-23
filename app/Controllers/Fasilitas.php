@@ -16,7 +16,7 @@ class Fasilitas extends BaseController
     {
         $fasilitas   = $this->FasilitasModel->findAll();
         $data = [
-            'title' => 'Data fasilitas',
+            'title' => 'Data Fasilitas',
             'fasilitas' => $fasilitas
         ];
         return view('admin/fasilitas/index', $data);

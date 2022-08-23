@@ -12,7 +12,8 @@
                     <a href="/create" class="btn btn-success rounded-pill m-2 btn-sm">+
                         <a href="/wisata/create" class="btn btn-success rounded-pill m-2 btn-sm">+
                             Tambah</a>
-                        <a href="/wisata/map" class="btn btn-outline-success rounded-pill btn-sm"><i class="bi bi-map px-2"></i>
+                        <a href="/wisata/map" class="btn btn-outline-success rounded-pill btn-sm"><i
+                                class="bi bi-map px-2"></i>
                             Maps</a>
                 </h4>
 
@@ -45,8 +46,8 @@
                                 <td><?php echo $sd['nama_jenis']; ?></td>
                                 <td><?php echo $sd['nama_tempat']; ?></td>
                                 <td><?php echo $sd['keterangan']; ?></td>
-                                <td><?php echo $sd['Longitude']; ?></td>
-                                <td><?php echo $sd['Latitude']; ?></td>
+                                <td><?php echo $sd['longitude']; ?></td>
+                                <td><?php echo $sd['latitude']; ?></td>
                                 <td><img src="img/<?= $sd['foto'] ?>" width="100px" alt=""></td>
                                 <td><?php echo $sd['keterangan']; ?></td>
                                 <td>
@@ -61,7 +62,7 @@
 
                             </tr>
 
-                        <?php endforeach; ?>
+                            <?php endforeach; ?>
 
                         </tbody>
                     </table>
