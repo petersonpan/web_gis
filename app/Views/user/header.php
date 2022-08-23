@@ -26,6 +26,11 @@
     <!-- Template Main CSS File -->
     <link href="<?= base_url('user-template/assets/css/style.css') ?>" rel="stylesheet">
 
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin="" />
+
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
     <!-- =======================================================
   * Template Name: Bocor - v4.8.0
   * Template URL: https://bootstrapmade.com/bocor-bootstrap-template-nice-animation/
@@ -48,10 +53,10 @@
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-                    <li><a class="nav-link scrollto" href="#about">Objek Wisata</a></li>
+                    <li><a class="nav-link scrollto active" href="/">Home</a></li>
+                    <li><a class="nav-link scrollto" href="/objek-wisata">Objek Wisata</a></li>
 
-                    <li><a class="getstarted scrollto" href="#about">Login</a></li>
+                    <li><a class="getstarted scrollto" href="/map"><i class="bi bi-map"></i> &nbsp; Lihat Map</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->

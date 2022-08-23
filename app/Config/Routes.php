@@ -38,6 +38,8 @@ $routes->set404Override();
 
 //USERS
 $routes->get('/', 'User::index');
+$routes->get('/map', 'User::map');
+$routes->get('/objek-wisata', 'User::objekWisata');
 
 
 $routes->get('/admin', 'Home::index');

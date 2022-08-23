@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row d-flex align-items-center"">
       <div class=" col-lg-6 py-5 py-lg-0 order-2 order-lg-1" data-aos="fade-right">
-            <h1>SISTEM INFORMASI GEOGRAFIS</h1>
+            <h1>PESONA SABU</h1>
             <h2>PEMETAAN OBJEK WISATA DI KABUPATEN SABU RAI JUA</h2>
             <a href="/map" class="btn-get-started scrollto"><i class="bi bi-map-fill"></i> Lihat Map</a>
         </div>
