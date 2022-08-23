@@ -13,7 +13,7 @@
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Nama Tempat</label>
 
-                        <input type="text" value="<?= old('nama_tempat') ?>"
+                        <input type="text" value="<?= $tempat['nama_tempat'] ?>"
                             class="form-control <?= $validation->hasError('nama_tempat')   ?  'is-invalid' : null ?>"
                             autofocus id="nama_tempat" name="nama_tempat">
                         <div class="invalid-feedback">
@@ -42,7 +42,7 @@
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Keterangan</label>
 
-                        <input type="text" value="<?= old('keterangan_tempat') ?>"
+                        <input type="text" value="<?= $tempat['keterangan_tempat'] ?>"
                             class="form-control <?= $validation->hasError('keterangan_tempat')   ?  'is-invalid' : null ?>"
                             autofocus id="keterangan_tempat" name="keterangan_tempat">
                         <div class="invalid-feedback">
@@ -53,7 +53,7 @@
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Jarak</label>
 
-                        <input type="text" value="<?= old('jarak') ?>"
+                        <input type="text" value="<?= $tempat['jarak'] ?>"
                             class="form-control <?= $validation->hasError('jarak')   ?  'is-invalid' : null ?>"
                             autofocus id="jarak" name="jarak">
                         <div class="invalid-feedback">
