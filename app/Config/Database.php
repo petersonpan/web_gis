@@ -35,7 +35,7 @@ class Database extends Config
         'hostname' => 'localhost',
         'username' => 'root',
         'password' => '',
-        'database' => 'parawisata',
+        'database' => 'pariwisata',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,
