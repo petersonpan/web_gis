@@ -21,31 +21,26 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Nama Wisata</th>
-
-                                <th scope="col">Jenis Wisata</th>
                                 <th scope="col">Nama Tempat</th>
                                 <th scope="col">Fasilitas</th>
-                                <th scope="col">Longitude</th>
-                                <th scope="col">Latitude</th>
+                                <th scope="col">Koordinat</th>
                                 <th scope="col">Foto</th>
                                 <th scope="col">Keterangan</th>
                                 <th scope="col">Aksi</th>
-
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-
                                 <?php $i = 1; ?>
                                 <?php foreach ($objek_wisata as $sd) : ?>
                             <tr>
                                 <th scope="row"><?= $i++; ?></th>
-                                <td><?php echo $sd['nama_wisata']; ?></td>
-                                <td><?php echo $sd['nama_jenis']; ?></td>
+                                <td><?php echo $sd['nama_wisata']; ?> <br>
+                                    <span class="badge bg-secondary" style="font-size: 11px"><?php echo $sd['nama_jenis']; ?></span>
+                                </td>
                                 <td><?php echo $sd['nama_tempat']; ?></td>
-                                <td><?php echo $sd['keterangan']; ?></td>
-                                <td><?php echo $sd['Longitude']; ?></td>
-                                <td><?php echo $sd['Latitude']; ?></td>
+                                <td><?php echo $sd['nama_fasilitas']; ?></td>
+                                <td><?php echo $sd['longitude'] . '<br>' . $sd['latitude']; ?></td>
                                 <td><img src="img/<?= $sd['foto'] ?>" width="100px" alt=""></td>
                                 <td><?php echo $sd['keterangan']; ?></td>
                                 <td>

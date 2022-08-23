@@ -11,5 +11,4 @@ class Mwisata extends Model
     protected $useTimestamps = true;
 
     protected $allowedFields = ['nama_wisata', 'id_jenis', 'id_tempat', 'id_fasilitas', 'longitude', 'latitude', 'foto', 'keterangan'];
-
 }

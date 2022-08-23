@@ -41,7 +41,7 @@ class Fasilitas extends BaseController
             'keterangan'        => $this->request->getVar('keterangan')
         ]);
         // session()->flashdata('pesan', 'data berhasil di tambah.');
-        return redirect()->to('/fasilitas');
+        return redirect()->to('/fasilitas')->with('success', 'Data fasilitas berhasil disimpan');
     }
 
     public function edit($id)
@@ -63,12 +63,12 @@ class Fasilitas extends BaseController
             'page' => 'fasilitas',
             'keterangan' => $this->request->getVar('Keterangan')
         ]);
-        return redirect()->to('/fasilitas');
+        return redirect()->to('/fasilitas')->with('success', 'Data fasilitas berhasil diubah');
     }
     public function delete($id)
     {
 
         $this->FasilitasModel->delete($id);
-        return redirect()->to('/fasilitas');
+        return redirect()->to('/fasilitas')->with('success', 'Data fasilitas berhasil dihapus');
     }
 }

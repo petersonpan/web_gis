@@ -33,7 +33,7 @@
     <?php
     foreach ($objek_wisata as $r) {
     ?>
-        L.marker([<?= $r['Longitude'] ?>, <?= $r['Latitude'] ?>])
+        L.marker([<?= $r['longitude'] ?>, <?= $r['latitude'] ?>])
             .addTo(map)
             .bindPopup("<h5><?= $r['nama_wisata'] ?></h5> <div class='isiWisata'><?= $r['keterangan'] ?></div>");
     <?php

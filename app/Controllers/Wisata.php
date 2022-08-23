@@ -22,7 +22,12 @@ class Wisata extends BaseController
     }
     public function index()
     {
-        $objek   = $this->Wisatamodel->join('jenis_wisata', 'object_wisata.id_jenis = jenis_wisata.id_jenis')->join('fasilitas', 'object_wisata.id_fasilitas = fasilitas.id_fasilitas')->join('tempat_wisata', 'object_wisata.id_tempat = tempat_wisata.id_tempat')->findAll();
+        $objek   = $this->Wisatamodel
+            ->join('jenis_wisata', 'object_wisata.id_jenis = jenis_wisata.id_jenis')
+            ->join('fasilitas', 'object_wisata.id_fasilitas = fasilitas.id_fasilitas')
+            ->join('tempat_wisata', 'object_wisata.id_tempat = tempat_wisata.id_tempat')
+            ->select(['object_wisata.*', 'tempat_wisata.nama_tempat', 'jenis_wisata.nama_jenis', 'fasilitas.keterangan AS nama_fasilitas'])
+            ->findAll();
         $data = [
             'title' => 'Data Objek Wisata',
             'page' => 'wisata',
@@ -70,7 +75,7 @@ class Wisata extends BaseController
 
         ]);
 
-        return redirect()->to('/wisata')->with('error', 'Data tidak berhasil disimpan silahkan cek kembali!');
+        return redirect()->to('/wisata')->with('success', 'Data berhasil tersimpan');
     }
 
     public function edit($id)
