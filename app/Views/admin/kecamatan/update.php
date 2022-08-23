@@ -17,7 +17,6 @@
                     <input type="text" value="<?=$kecamatan['nama_kecamatan']?>" class="form-control <?=$validation->hasError('kecamatan')   ?  'is-invalid' : null ?>" autofocus id="kecamatan" name="kecamatan">
                     <div class="invalid-feedback">
                         <?= $validation->getError('kecamatan'); ?>
-
                          </div>
                     </div>
 

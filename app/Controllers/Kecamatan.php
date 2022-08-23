@@ -108,7 +108,6 @@ class Kecamatan extends BaseController
            }
 
              $this->KecamatanModel->update($id, [
-
             'nama_kecamatan'    => $this->request->getVar('kecamatan'),
             'keterangan'        => $this->request->getVar('keterangan'),
         ]);
