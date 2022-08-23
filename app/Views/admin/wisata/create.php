@@ -120,8 +120,8 @@
     map.on('click', function(e) {
         assetLayerGroup.clearLayers();
         map.addLayer(assetLayerGroup);
-        document.getElementById('longitude').value = e.latlng.lng;
-        document.getElementById('latitude').value = e.latlng.lat;
+        document.getElementById('longitude').value = e.latlng.lat;
+        document.getElementById('latitude').value = e.latlng.lng;
 
         var mp = new L.Marker([e.latlng.lat, e.latlng.lng]);
         map.eachLayer((layer) => {
