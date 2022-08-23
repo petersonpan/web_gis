@@ -7,12 +7,14 @@
         <div class="col-12">
             <div class="bg-light rounded h-100 p-4">
                 <h4 class="mb-4"><?php echo $title ?></h4>
-                <?php $validation = \Config\Services::validation();?>
+                <?php $validation = \Config\Services::validation(); ?>
                 <form action="/tempat/update/<?= $tempat['id_tempat']; ?>" method="post">
                     <?= csrf_field(); ?>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Nama Tempat</label>
-                        <input type="text" value="<?=old('nama_tempat')?>" class="form-control <?=$validation->hasError('nama_tempat')   ?  'is-invalid' : null ?>" autofocus id="nama_tempat" name="nama_tempat">
+                        <input type="text" value="<?= old('nama_tempat') ?>"
+                            class="form-control <?= $validation->hasError('nama_tempat')   ?  'is-invalid' : null ?>"
+                            autofocus id="nama_tempat" name="nama_tempat">
                         <div class="invalid-feedback">
                             <?= $validation->getError('nama_tempat'); ?>
                         </div>
@@ -38,7 +40,9 @@
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Keterangan</label>
-                        <input type="text" value="<?=old('keterangan_tempat')?>" class="form-control <?=$validation->hasError('keterangan_tempat')   ?  'is-invalid' : null ?>" autofocus id="keterangan_tempat" name="keterangan_tempat">
+                        <input type="text" value="<?= old('keterangan_tempat') ?>"
+                            class="form-control <?= $validation->hasError('keterangan_tempat')   ?  'is-invalid' : null ?>"
+                            autofocus id="keterangan_tempat" name="keterangan_tempat">
                         <div class="invalid-feedback">
                             <?= $validation->getError('keterangan_tempat'); ?>
                         </div>
@@ -46,13 +50,15 @@
 
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Jarak</label>
-                        <input type="text" value="<?=old('jarak')?>" class="form-control <?=$validation->hasError('jarak')   ?  'is-invalid' : null ?>" autofocus id="jarak" name="jarak">
+                        <input type="text" value="<?= old('jarak') ?>"
+                            class="form-control <?= $validation->hasError('jarak')   ?  'is-invalid' : null ?>"
+                            autofocus id="jarak" name="jarak">
                         <div class="invalid-feedback">
                             <?= $validation->getError('jarak'); ?>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary">Simpan</button>
-                   </form>
+                </form>
 
             </div>
 

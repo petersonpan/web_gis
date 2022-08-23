@@ -39,19 +39,19 @@ class Fasilitas extends BaseController
     public function simpan()
     {
 
-       $validate=$this->validate([
-        'keterangan'=>[
-            'rules'=>'required|min_length[3]',
-            'errors'=>[
-                'required' =>   'Data Harus Diisi.',
-                'min_length' => 'Data keterangan minimal 3 karakter.',
+        $validate = $this->validate([
+            'keterangan' => [
+                'rules' => 'required|min_length[3]',
+                'errors' => [
+                    'required' =>   'Data Harus Diisi.',
+                    'min_length' => 'Data keterangan minimal 3 karakter.',
+                ]
             ]
-        ]
-       ]);
+        ]);
 
-       if(!$validate){
-        return redirect()->back()->withInput()->with('error','Mohon cek kembali data inputan anda');
-       }
+        if (!$validate) {
+            return redirect()->back()->withInput()->with('error', 'Mohon cek kembali data inputan anda');
+        }
 
         helper(['form', 'url']);
         $this->FasilitasModel->save([
@@ -76,24 +76,24 @@ class Fasilitas extends BaseController
     public function update($id)
     {
 
-        $validate=$this->validate([
-            'keterangan'=>[
-                'rules'=>'required|min_length[3]',
-                'errors'=>[
+        $validate = $this->validate([
+            'keterangan' => [
+                'rules' => 'required|min_length[3]',
+                'errors' => [
                     'required' =>   'Data Harus Diisi.',
                     'min_length' => 'Data keterangan minimal 3 karakter.',
                 ]
             ]
-           ]);
+        ]);
 
-           if(!$validate){
-            return redirect()->back()->withInput()->with('error','Mohon cek kembali data inputan anda');
-           }
-           
+        if (!$validate) {
+            return redirect()->back()->withInput()->with('error', 'Mohon cek kembali data inputan anda');
+        }
+
         helper(['form', 'url']);
         $this->FasilitasModel->update($id, [
             'page' => 'fasilitas',
-            'keterangan' => $this->request->getVar('Keterangan')
+            'keterangan' => $this->request->getVar('keterangan')
         ]);
         return redirect()->to('/fasilitas')->with('success', 'Data fasilitas berhasil diubah');
     }
