@@ -37,11 +37,33 @@ class Kecamatan extends BaseController
 
     public function simpan()
     {
+
+        $validate=$this->validate([
+            'kecamatan'=>[
+                'rules'=>'required|min_length[3]',
+                'errors'=>[
+                    'required' =>   'Data Harus Diisi.',
+                    'min_length' => 'Data harus diisi minimal 3 karakter.',
+                ]
+                ],
+
+            'keterangan'=>[
+                'rules'=>'required|min_length[3]',
+                'errors'=>[
+                    'required' =>   'Data Harus Diisi.',
+                    'min_length' => 'Data harus diisi minimal 3 karakter.',
+                ]
+                ],
+           ]);
+    
+           if(!$validate){
+            return redirect()->back()->withInput()->with('error','Mohon cek kembali data inputan anda');
+           }
+
         helper(['form', 'url']);
         $this->KecamatanModel->save([
-
             'nama_kecamatan'    => $this->request->getVar('kecamatan'),
-            'keterangan'        => $this->request->getVar('Keterangan')
+            'keterangan'        => $this->request->getVar('keterangan')
         ]);
 
         return redirect()->to('/kecamatan');
@@ -62,11 +84,35 @@ class Kecamatan extends BaseController
 
     public function update($id)
     {
+
+        $validate=$this->validate([
+            'kecamatan'=>[
+                'rules'=>'required|min_length[3]',
+                'errors'=>[
+                    'required' =>   'Data Harus Diisi.',
+                    'min_length' => 'Data harus diisi minimal 3 karakter.',
+                ]
+                ],
+
+            'keterangan'=>[
+                'rules'=>'required|min_length[3]',
+                'errors'=>[
+                    'required' =>   'Data Harus Diisi.',
+                    'min_length' => 'Data harus diisi minimal 3 karakter.',
+                ]
+                ],
+           ]);
+    
+           if(!$validate){
+            return redirect()->back()->withInput()->with('error','Mohon cek kembali data inputan anda');
+           }
+
+
         helper(['form', 'url']);
         $this->KecamatanModel->update($id, [
 
             'nama_kecamatan'    => $this->request->getVar('kecamatan'),
-            'keterangan'        => $this->request->getVar('Keterangan')
+            'keterangan'        => $this->request->getVar('keterangan')
         ]);
         return redirect()->to('/kecamatan');
     }

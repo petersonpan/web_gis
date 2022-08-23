@@ -11,9 +11,14 @@
                 <form action="/fasilitas/simpan" method="post">
                     <?= csrf_field(); ?>
                     <div class="mb-3">
+                        <?php $validation = \Config\Services::validation();?>
+
                         <label for="exampleInputEmail1" class="form-label">Keterangan</label>
-                        <input type="text" required class="form-control" id="keterangan" name="keterangan"
+                        <input type="text" value="<?=old('keterangan')?>" class="form-control <?=$validation->hasError('keterangan')   ?  'is-invalid' : null ?>" autofocus id="keterangan" name="keterangan"
                             aria-describedby="emailHelp">
+                            <div class="invalid-feedback">
+                                <?= $validation->getError('keterangan'); ?>
+                            </div>
                     </div>
 
                     <button type="submit" class="btn btn-primary">Simpan</button>

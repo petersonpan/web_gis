@@ -40,15 +40,19 @@ class Wisata extends BaseController
 
     public function create()
     {
-        $jenis   = $this->Jenismodel->findAll();
-        $tempat   = $this->tempatmodel->findAll();
-        $fasilitas   = $this->fasilitasmodel->findAll();
+        session();
+
+        $jenis      = $this->Jenismodel->findAll();
+        $tempat     = $this->tempatmodel->findAll();
+        $fasilitas  = $this->fasilitasmodel->findAll();
+        $objek      = $this->Wisatamodel->findAll();
         $data = [
-            'title' => 'Tambah Data Objek Wisata',
+            'title'     => 'Tambah Data Objek Wisata',
+            'jenis'     => $jenis,
+            'tempat'    => $tempat,
+            'fasilitas' => $fasilitas,
+            'validation' => \Config\Services::validation(),
             'page' => 'wisata',
-            'jenis' => $jenis,
-            'tempat' => $tempat,
-            'fasilitas' => $fasilitas
         ];
         return view('admin/wisata/create', $data);
     }
@@ -59,9 +63,9 @@ class Wisata extends BaseController
     {
 
         $foto = $this->request->getFile('foto');
-        $namafoto = $foto->getRandomName();
-        $foto->move('img', $namafoto);
-        helper(['form', 'url']);
+        $namafoto= $foto->getRandomName();
+        $foto->move('img',$namafoto);
+        helper(['form', 'url']); 
         $this->Wisatamodel->save([
 
             'nama_wisata'        => $this->request->getVar('nama_wisata'),
@@ -88,6 +92,7 @@ class Wisata extends BaseController
         $objek   = $this->Wisatamodel->join('jenis_wisata', 'object_wisata.id_jenis = jenis_wisata.id_jenis')
             ->join('fasilitas', 'object_wisata.id_fasilitas = fasilitas.id_fasilitas')
             ->join('tempat_wisata', 'object_wisata.id_tempat = tempat_wisata.id_tempat')
+            ->select(['object_wisata.*', 'tempat_wisata.nama_tempat', 'jenis_wisata.nama_jenis', 'fasilitas.keterangan AS nama_fasilitas'])
             ->where('object_wisata.id_wisata', $id)->find($id);
 
         $data = [
@@ -125,6 +130,7 @@ class Wisata extends BaseController
     public function delete($id)
     {
         $this->Wisatamodel->delete($id);
+
         return redirect()->to('/tempat');
     }
 
