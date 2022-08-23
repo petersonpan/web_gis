@@ -14,7 +14,7 @@ class User extends BaseController
     }
     public function index()
     {
-        return view('user/index');
+        return view('user/index', ['title' => 'Pariwisata Sabu Raijua | Beranda', 'page' => 'home']);
     }
     public function map()
     {
@@ -25,8 +25,8 @@ class User extends BaseController
             ->select(['object_wisata.*', 'tempat_wisata.nama_tempat', 'jenis_wisata.nama_jenis', 'fasilitas.keterangan AS nama_fasilitas'])
             ->findAll();
         $data = [
-            'title' => 'Data Objek Wisata',
-            'page' => 'wisata',
+            'title' => 'Peta Lokasi Wisata',
+            'page' => 'map',
             'objek_wisata' => $objek,
 
         ];
@@ -41,8 +41,8 @@ class User extends BaseController
             ->select(['object_wisata.*', 'tempat_wisata.nama_tempat', 'jenis_wisata.nama_jenis', 'fasilitas.keterangan AS nama_fasilitas'])
             ->findAll();
         $data = [
-            'title' => 'Data Objek Wisata',
-            'page' => 'wisata',
+            'title' => 'Pariwisata Sabu Raijua | Objek Wisata',
+            'page' => 'objek',
             'objek_wisata' => $objek,
 
         ];

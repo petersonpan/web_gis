@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Bocor Bootstrap Template - Index</title>
+    <title><?= $title ?></title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -78,8 +78,8 @@
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto active" href="/">Home</a></li>
-                    <li><a class="nav-link scrollto" href="/objek-wisata">Objek Wisata</a></li>
+                    <li><a class="nav-link <?= ($page == 'home') ? 'active' : '' ?>" href="/">Home</a></li>
+                    <li><a class="nav-link  <?= ($page == 'objek') ? 'active' : '' ?>" href="/objek-wisata">Objek Wisata</a></li>
 
                     <li><a class="getstarted scrollto" href="/map"><i class="bi bi-map"></i> &nbsp; Lihat Map</a></li>
                 </ul>
