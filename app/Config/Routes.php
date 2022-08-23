@@ -35,7 +35,13 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+
+//USERS
 $routes->get('/', 'User::index');
+$routes->get('/map', 'User::map');
+$routes->get('/objek-wisata', 'User::objekWisata');
+
+
 $routes->get('/admin', 'Home::index');
 $routes->get('/wisata', 'Wisata::index');
 $routes->get('/wisata/map', 'Wisata::map');
