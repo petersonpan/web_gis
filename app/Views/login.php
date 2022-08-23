@@ -113,9 +113,35 @@
             }
         }
     </style>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 
 <body>
+    <?php if (session()->has('success')) {
+    ?>
+        <script>
+            Swal.fire({
+                title: 'Berhasil!',
+                text: '<?= session('success') ?>',
+                icon: 'success',
+                confirmButtonText: 'Tutup'
+            })
+        </script>
+    <?php
+    } ?>
+    <?php if (session()->has('error')) {
+    ?>
+        <script>
+            Swal.fire({
+                title: 'Gagal!',
+                text: '<?= session('error') ?>',
+                icon: 'error',
+                confirmButtonText: 'Ok'
+            })
+        </script>
+    <?php
+    } ?>
     <div class="main">
         <center><img src="<?= base_url() ?>/assets-img/logo.png" style="width: 100px; margin-top: 30px" alt=""></center>
         <p class="sign" align="center">Login Admin

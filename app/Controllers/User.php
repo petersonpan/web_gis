@@ -57,7 +57,15 @@ class User extends BaseController
         ];
         return view('login', $data);
     }
+    public function logout()
+    {
+        $session = session();
+        $session->remove('AdminUsername');
+        $session->remove('LoggedAt');
+        $session->remove('role');
 
+        return redirect()->to(base_url())->with('success', 'Anda berhasil Log Out');
+    }
     public function authLogin()
     {
         $loginAttempt = $this->Adminmodel
@@ -66,8 +74,16 @@ class User extends BaseController
             ->findAll();
 
         if (count($loginAttempt) > 0) {
-            return 'sukses';
+            $session = session();
+            $loggedUser = [
+                'AdminUsername' => $this->request->getVar('username'),
+                'LoggedAt' => date('Y-m-d H:s:i'),
+                'role' => 'admin',
+            ];
+            $session->set($loggedUser);
+
+            return redirect()->to('/admin');
         }
-        return 'gagal';
+        return redirect()->to('/login')->with('error', 'Silahkan cek kembali Username dan Password anda');
     }
 }
