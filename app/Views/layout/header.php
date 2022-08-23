@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>DASHMIN - Bootstrap Admin Template</title>
+    <title><?= $title ?></title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -67,17 +67,17 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="/" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-                    <a href="/wisata" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Wisata</a>
-                    <a href="/fasilitas" class="nav-item nav-link"><i class="fa fa-h-square me-2"></i>Fasilitas
+                    <a href="/" class="nav-item nav-link <?= ($page == 'dashboard') ? 'active' : '' ?>"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="/wisata" class="nav-item nav-link <?= ($page == 'wisata') ? 'active' : '' ?>"><i class="fa fa-th me-2"></i>Wisata</a>
+                    <a href="/fasilitas" class="nav-item nav-link <?= ($page == 'fasilitas') ? 'active' : '' ?>"><i class="fa fa-h-square me-2"></i>Fasilitas
                         Wisata</a>
-                    <a href="/tempat" class="nav-item nav-link"><i class="fa fa-map-marker me-2"></i>Tempat
+                    <a href="/tempat" class="nav-item nav-link <?= ($page == 'tempat_wisata') ? 'active' : '' ?>"><i class="fa fa-map-marker me-2"></i>Tempat
                         Wisata</a>
-                    <a href="/jenis" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Jenis Wisata</a>
-                    <a href="/kelurahan" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Kelurahan</a>
-                    <a href="/kecamatan" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Kecamatan</a>
-                    <a href="/ulasan" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Ulasan</a>
-                    <a href="/admin" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Admin</a>
+                    <a href="/jenis" class="nav-item nav-link <?= ($page == 'jenis_wisata') ? 'active' : '' ?>"><i class="fa fa-th me-2"></i>Jenis Wisata</a>
+                    <a href="/kelurahan" class="nav-item nav-link <?= ($page == 'kelurahan') ? 'active' : '' ?>"><i class="fa fa-th me-2"></i>Kelurahan</a>
+                    <a href="/kecamatan" class="nav-item nav-link <?= ($page == 'kecamatan') ? 'active' : '' ?>"><i class="fa fa-th me-2"></i>Kecamatan</a>
+                    <a href="/ulasan" class="nav-item nav-link <?= ($page == 'ulasan') ? 'active' : '' ?>"><i class="fa fa-th me-2"></i>Ulasan</a>
+                    <a href="/admin" class="nav-item nav-link <?= ($page == 'admin') ? 'active' : '' ?>"><i class="fa fa-th me-2"></i>Admin</a>
 
 
             </nav>

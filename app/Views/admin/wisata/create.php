@@ -68,13 +68,27 @@
                             ?>
                         </select>
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Longitude</label>
-                        <input type="text" name="longitude" class="form-control" id="longitude">
+                    <div class="mb-3 mt-2">
+                        <h5>Lokasi Wisata</h5>
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Latitude</label>
-                        <input type="text" name="latitude" class="form-control" id="latitude">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Long</label>
+                                <input type="text" id="longitude" name="longitude" class="form-control" id="exampleInputPassword1">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Lat</label>
+                                <input type="text" id="latitude" name="latitude" class="form-control" id="exampleInputPassword1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div id="map" style="width: 100%; height: 300px; border-radius: 10px"></div>
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Foto</label>
@@ -86,12 +100,37 @@
                         <input type="text" name="keterangan" class="form-control" id="keterangan">
                     </div>
                     <button type="submit" class="btn btn-primary">Simpan</button>
-                 </form>
+                </form>
                 </form>
             </div>
 
         </div>
     </div>
 </div>
+
+<script>
+    // Creating map options
+    var map = L.map('map').setView([-10.5390, 121.8686], 11);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '© ESC17'
+    }).addTo(map);
+
+    var assetLayerGroup = new L.LayerGroup();
+    map.on('click', function(e) {
+        assetLayerGroup.clearLayers();
+        map.addLayer(assetLayerGroup);
+        document.getElementById('longitude').value = e.latlng.lng;
+        document.getElementById('latitude').value = e.latlng.lat;
+
+        var mp = new L.Marker([e.latlng.lat, e.latlng.lng]);
+        map.eachLayer((layer) => {
+            if (layer instanceof L.Marker) {
+
+            }
+        });
+        assetLayerGroup.addLayer(mp);
+    });
+</script>
 <!-- Table End -->
 <?php echo view('layout/footer'); ?>

@@ -18,6 +18,7 @@ class Kecamatan extends BaseController
         $kecamatan   = $this->KecamatanModel->findAll();
         $data = [
             'title' => 'Data Kecamatan',
+            'page' => 'kecamatan',
             'kecamatan' => $kecamatan
         ];
         return view('admin/kecamatan/index', $data);
@@ -27,6 +28,7 @@ class Kecamatan extends BaseController
     {
 
         $data = [
+            'page' => 'kecamatan',
             'title' => 'Tambah Data Kecamatan'
         ];
         return view('admin/kecamatan/create', $data);
@@ -49,6 +51,7 @@ class Kecamatan extends BaseController
     {
         $kecamatan   = $this->KecamatanModel->find($id);
         $data = [
+            'page' => 'kecamatan',
             'title' => 'Edit Data Kecamatan',
             'kecamatan' => $kecamatan
         ];

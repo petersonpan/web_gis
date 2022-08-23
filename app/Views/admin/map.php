@@ -11,8 +11,8 @@
                 <h4 class="mb-9"><?php echo $title ?>
                     <a href="/create" class="btn btn-success rounded-pill m-2 btn-sm">+
                         Tambah</a>
-                    <a href="/wisata/map" class="btn btn-outline-success rounded-pill btn-sm"><i class="bi bi-map px-2"></i>
-                        Maps</a>
+                    <a href="/wisata/" class="btn btn-outline-success rounded-pill btn-sm"><i class="bi bi-table px-2"></i>
+                        Table Data</a>
                 </h4>
                 <div>
                     <div id="map" style="width: 900px; height: 580px"></div>
@@ -25,7 +25,7 @@
 
 <script>
     // Creating map options
-    var map = L.map('map').setView([-10.2308, 123.6868], 11);
+    var map = L.map('map').setView([-10.5390, 121.8686], 11);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '© ESC17'
@@ -33,7 +33,7 @@
     <?php
     foreach ($objek_wisata as $r) {
     ?>
-        L.marker([<?= $r['Longitude'] ?>, <?= $r['Latitude'] ?>])
+        L.marker([<?= $r['longitude'] ?>, <?= $r['latitude'] ?>])
             .addTo(map)
             .bindPopup("<h5><?= $r['nama_wisata'] ?></h5> <div class='isiWisata'><?= $r['keterangan'] ?></div>");
     <?php

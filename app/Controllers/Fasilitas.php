@@ -16,7 +16,8 @@ class Fasilitas extends BaseController
     {
         $fasilitas   = $this->FasilitasModel->findAll();
         $data = [
-            'title' => 'Data fasilitas',
+            'page' => 'fasilitas',
+            'title' => 'Data Fasilitas',
             'fasilitas' => $fasilitas
         ];
         return view('admin/fasilitas/index', $data);
@@ -26,6 +27,7 @@ class Fasilitas extends BaseController
     {
 
         $data = [
+            'page' => 'fasilitas',
             'title' => 'Tambah Data Fasilitas'
         ];
         return view('admin/fasilitas/create', $data);
@@ -39,7 +41,7 @@ class Fasilitas extends BaseController
             'keterangan'        => $this->request->getVar('keterangan')
         ]);
         // session()->flashdata('pesan', 'data berhasil di tambah.');
-        return redirect()->to('/fasilitas');
+        return redirect()->to('/fasilitas')->with('success', 'Data fasilitas berhasil disimpan');
     }
 
     public function edit($id)
@@ -47,6 +49,7 @@ class Fasilitas extends BaseController
 
         $fasilitas   = $this->FasilitasModel->find($id);
         $data = [
+            'page' => 'fasilitas',
             'title' => 'Edit Data Fasilitas',
             'fasilitas' => $fasilitas
         ];
@@ -57,14 +60,15 @@ class Fasilitas extends BaseController
     {
         helper(['form', 'url']);
         $this->FasilitasModel->update($id, [
-            'keterangan'        => $this->request->getVar('Keterangan')
+            'page' => 'fasilitas',
+            'keterangan' => $this->request->getVar('Keterangan')
         ]);
-        return redirect()->to('/fasilitas');
+        return redirect()->to('/fasilitas')->with('success', 'Data fasilitas berhasil diubah');
     }
     public function delete($id)
     {
 
         $this->FasilitasModel->delete($id);
-        return redirect()->to('/fasilitas');
+        return redirect()->to('/fasilitas')->with('success', 'Data fasilitas berhasil dihapus');
     }
 }

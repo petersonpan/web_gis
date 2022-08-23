@@ -1,16 +1,14 @@
 <?php echo view('layout/header'); ?>
-
-<!-- Table Start -->
-
 <div class="container-fluid pt-4 ">
     <div class="row">
 
         <div class="col-12">
             <div class="bg-light rounded h-100 p-4">
 
-                <h4 class="mb-9"><?php echo $title ?> <a href="/fasilitas/create"
-                        class="btn btn-success rounded-pill m-2 btn-sm">+
-                        Tambah</a>
+                <h4 class="mb-9"><?php echo $title ?>
+                    <a href="/fasilitas/create" class="btn btn-success rounded-pill m-2 btn-sm">+
+                        Tambah
+                    </a>
                 </h4>
 
                 <div class="table-responsive">
@@ -28,21 +26,20 @@
 
                             foreach ($fasilitas as $k) {
                             ?>
-                            <tr>
-                                <td><?= $i++; ?></td>
-                                <td><?php echo $k['keterangan']; ?></td>
+                                <tr>
+                                    <td><?= $i++; ?></td>
+                                    <td><?php echo $k['keterangan']; ?></td>
 
 
-                                <td>
-                                    <a href="/fasilitas/edit/<?= $k['id_fasilitas']; ?>"
-                                        class="btn btn-primary">Edit</a>
-                                    <form action="/fasilitas/<?= $k['id_fasilitas']; ?>" class="d-inline" method="post">
-                                        <?= csrf_field(); ?>
-                                        <input type="hidden" name="_method" value="DELETE">
-                                        <button type="submit" class="btn btn-danger">Hapus</button>
-                                    </form>
-                                </td>
-                            </tr>
+                                    <td>
+                                        <a href="/fasilitas/edit/<?= $k['id_fasilitas']; ?>" class="btn btn-primary">Edit</a>
+                                        <form action="/fasilitas/<?= $k['id_fasilitas']; ?>" class="d-inline" method="post">
+                                            <?= csrf_field(); ?>
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <button type="submit" class="btn btn-danger">Hapus</button>
+                                        </form>
+                                    </td>
+                                </tr>
                             <?php
                             }
                             ?>
