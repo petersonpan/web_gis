@@ -108,13 +108,10 @@ class Jenis extends BaseController
             return redirect()->back()->withInput()->with('error','Mohon cek kembali data inputan anda');
            }
     
-
-
-
         helper(['form', 'url']);
         $this->jenismodel->update($id, [
             'nama_jenis'        => $this->request->getVar('jenis'),
-            'keterangan'        => $this->request->getVar('Keterangan')
+            'keterangan'        => $this->request->getVar('keterangan')
         ]);
         return redirect()->to('/jenis');
     }
