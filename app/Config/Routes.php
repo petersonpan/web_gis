@@ -38,7 +38,6 @@ $routes->set404Override();
 $routes->get('/', 'User::index');
 $routes->get('/admin', 'Home::index');
 $routes->get('/wisata', 'Wisata::index');
-$routes->get('/create', 'Wisata::create');
 $routes->get('/wisata/map', 'Wisata::map');
 $routes->get('/wisata/create', 'Wisata::create');
 $routes->get('/fasilitas', 'Fasilitas::index');

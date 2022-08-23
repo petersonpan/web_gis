@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Models\Mjenis;
 
 class Jenis extends BaseController
@@ -8,15 +9,16 @@ class Jenis extends BaseController
     protected $jenismodel;
     public function __construct()
     {
-        $this->jenismodel= new Mjenis();
+        $this->jenismodel = new Mjenis();
     }
     public function index()
     {
 
-       
+
         $jenis   = $this->jenismodel->findAll();
         $data = [
             'title' => 'Data Jenis wisata',
+            'page' => 'jenis_wisata',
             'jenis_wisata' => $jenis
         ];
         return view('admin/jenis/index', $data);
@@ -24,8 +26,9 @@ class Jenis extends BaseController
 
     public function create()
     {
-        
+
         $data = [
+            'page' => 'jenis_wisata',
             'title' => 'Tambah Data Jenis Wisata'
         ];
         return view('admin/jenis/create', $data);
@@ -36,18 +39,19 @@ class Jenis extends BaseController
     {
 
         helper(['form', 'url']);
-       $this->jenismodel->save([
+        $this->jenismodel->save([
 
-        'nama_jenis'    => $this->request->getVar('jenis'),
-        'keterangan'        => $this->request->getVar('Keterangan')
-       ]);
-       return redirect()->to('/jenis'); 
+            'nama_jenis'    => $this->request->getVar('jenis'),
+            'keterangan'        => $this->request->getVar('Keterangan')
+        ]);
+        return redirect()->to('/jenis');
     }
 
     public function edit($id)
     {
         $jenis   = $this->jenismodel->find($id);
         $data = [
+            'page' => 'jenis_wisata',
             'title' => 'Edit Data jenis',
             'jenis' => $jenis
         ];
@@ -57,18 +61,18 @@ class Jenis extends BaseController
 
     public function update($id)
     {
-            helper(['form', 'url']);
-            $this->jenismodel->update($id,[
-                'nama_jenis'        => $this->request->getVar('jenis'),
-                'keterangan'        => $this->request->getVar('Keterangan')
-            ]);
-            return redirect()->to('/jenis'); 
+        helper(['form', 'url']);
+        $this->jenismodel->update($id, [
+            'nama_jenis'        => $this->request->getVar('jenis'),
+            'keterangan'        => $this->request->getVar('Keterangan')
+        ]);
+        return redirect()->to('/jenis');
     }
 
     public function delete($id)
     {
-        
+
         $this->jenismodel->delete($id);
-        return redirect()->to('/jenis'); 
+        return redirect()->to('/jenis');
     }
 }

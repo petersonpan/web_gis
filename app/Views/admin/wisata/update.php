@@ -8,12 +8,12 @@
             <div class="bg-light rounded h-100 p-4">
                 <h4 class="mb-4"><?php echo $title ?></h4>
 
-                <form method="post" action="/wisata/update/<?=$objek_wisata['id_wisata'];?>" enctype="multipart/form-data">
+                <form method="post" action="/wisata/update/<?= $objek_wisata['id_wisata']; ?>" enctype="multipart/form-data">
                     <?= csrf_field(); ?>
 
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Nama Wisata</label>
-                        <input type="text" value="<?= $objek_wisata['nama_wisata'];?>" name="nama_wisata" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <input type="text" value="<?= $objek_wisata['nama_wisata']; ?>" name="nama_wisata" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                     </div>
                     <div class="mb-3">`
                         <label for="exampleInputEmail1" class="form-label">Jenis Wisata</label>
@@ -23,10 +23,10 @@
                             if (!empty($jenis)) {
                                 foreach ($jenis as $u) {
                             ?>
-                                    <option value="<?php echo $u['id_jenis']; ?>"<?php if( $u['id_jenis']==$objek_wisata['id_jenis']){
-                                        echo 'selected';
-                                    } ?>>
-                                    <?= $u['keterangan'] ?>
+                                    <option value="<?php echo $u['id_jenis']; ?>" <?php if ($u['id_jenis'] == $objek_wisata['id_jenis']) {
+                                                                                        echo 'selected';
+                                                                                    } ?>>
+                                        <?= $u['keterangan'] ?>
                                     </option>
                             <?php
                                 }
@@ -42,10 +42,10 @@
                             if (!empty($tempat)) {
                                 foreach ($tempat as $u) {
                             ?>
-                                    <option value="<?php echo $u['id_tempat']; ?>"<?php if( $u['id_tempat']==$objek_wisata['id_tempat']){
-                                        echo 'selected';
-                                    } ?>>
-                                    <?php echo $u['nama_tempat']; ?>
+                                    <option value="<?php echo $u['id_tempat']; ?>" <?php if ($u['id_tempat'] == $objek_wisata['id_tempat']) {
+                                                                                        echo 'selected';
+                                                                                    } ?>>
+                                        <?php echo $u['nama_tempat']; ?>
                                     </option>
                             <?php
                                 }
@@ -62,10 +62,10 @@
                             if (!empty($fasilitas)) {
                                 foreach ($fasilitas as $u) {
                             ?>
-                                    <option value="<?php echo $u['id_fasilitas']; ?>"<?php if( $u['id_fasilitas']==$objek_wisata['id_fasilitas']){
-                                        echo 'selected';
-                                    } ?>>
-                                    <?php echo $u['keterangan']; ?>
+                                    <option value="<?php echo $u['id_fasilitas']; ?>" <?php if ($u['id_fasilitas'] == $objek_wisata['id_fasilitas']) {
+                                                                                            echo 'selected';
+                                                                                        } ?>>
+                                        <?php echo $u['keterangan']; ?>
                                     </option>
                             <?php
                                 }
@@ -74,25 +74,25 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Longitude</label>
-                        <input type="text" value="<?= $objek_wisata['Longitude']?>" name="longitude" class="form-control" id="exampleInputPassword1">
+                        <label for="exampleInputPassword1" class="form-label">longitude</label>
+                        <input type="text" value="<?= $objek_wisata['longitude'] ?>" name="longitude" class="form-control" id="exampleInputPassword1">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Latitude</label>
-                        <input type="text" value="<?= $objek_wisata['Latitude']?>" name="latitude" class="form-control" id="exampleInputPassword1">
+                        <label for="exampleInputPassword1" class="form-label">latitude</label>
+                        <input type="text" value="<?= $objek_wisata['latitude'] ?>" name="latitude" class="form-control" id="exampleInputPassword1">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Foto</label>
                         <input type="file" name="foto" class="form-control" id="exampleInputPassword1">
 
                     </div>
-                    <img src="/image/<?= $objek_wisata ['foto']?>>" alt="">
+                    <img src="/image/<?= $objek_wisata['foto'] ?>>" alt="">
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Keterangan</label>
-                        <input type="text" value="<?= $objek_wisata['keterangan']?>" name="keterangan" class="form-control" id="exampleInputPassword1">
+                        <input type="text" value="<?= $objek_wisata['keterangan'] ?>" name="keterangan" class="form-control" id="exampleInputPassword1">
                     </div>
                     <button type="submit" class="btn btn-primary">Simpan</button>
-                 </form>
+                </form>
                 </form>
             </div>
 

@@ -17,6 +17,7 @@ class Tempat extends BaseController
     {
         $tempat   = $this->tempatmodel->join('kecamatan', 'tempat_wisata.id_kecamatan = kecamatan.id_kecamatan')->findAll();
         $data = [
+            'page' => 'tempat_wisata',
             'title' => 'Data Tempat Wisata',
             'tempat_wisata' => $tempat
         ];
@@ -28,9 +29,10 @@ class Tempat extends BaseController
         $kecamatan   = $this->KecamatanModel->findAll();
         $data = [
             'title' => 'Tambah Data Tempat Wisata',
+            'page' => 'tempat_wisata',
             'kecamatan' => $kecamatan
         ];
-       
+
         return view('admin/tempat/create', $data);
         $this->load->helper('form_validation');
     }
@@ -55,11 +57,12 @@ class Tempat extends BaseController
         $tempat   = $this->tempatmodel->join('kecamatan', 'tempat_wisata.id_kecamatan = kecamatan.id_kecamatan')->find($id);
         $data = [
             'title' => 'Edit Data Tempat Wisata',
+            'page' => 'tempat_wisata',
             'tempat' => $tempat,
             'kecamatan' => $kecamatan
         ];
 
-        return view('admin/tempat/update', $data);  
+        return view('admin/tempat/update', $data);
     }
 
     public function update($id)
