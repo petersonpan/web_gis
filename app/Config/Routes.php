@@ -57,6 +57,15 @@ $routes->group('/', ['filter' => checkLogged::class], static function ($routes) 
     $routes->get('/tempat',    'Tempat::index');
     $routes->get('/kelurahan', 'Kelurahan::index');
     $routes->get('/kecamatan', 'Kecamatan::index');
+    $routes->get('/administrator', 'admin::index');
+
+
+    // administrator
+    $routes->get('/administrator/create',  'admin::create');
+    $routes->post('/administrator/simpan', 'admin::simpan');
+    $routes->get('/administrator/edit/(:segment)', 'admin::edit/$1');
+    $routes->post('/administrator/update/(:segment)', 'admin::update/$1');
+    $routes->delete('/administrator/(:num)', 'admin::delete/$1');
 
     // fasilitas
     $routes->get('/fasilitas/create', 'Fasilitas::create');
