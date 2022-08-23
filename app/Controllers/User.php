@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\Madmin;
 use App\Models\Mwisata;
 
 class User extends BaseController
@@ -9,7 +10,7 @@ class User extends BaseController
     public function __construct()
     {
         $this->Wisatamodel = new Mwisata();
-        $this->AdminModel = new Mwisata();
+        $this->Adminmodel = new Madmin();
     }
     public function index()
     {
@@ -59,15 +60,14 @@ class User extends BaseController
 
     public function authLogin()
     {
-        $credential = [
-            'username'    => $this->request->getVar('username'),
-            'password' => $this->request->getVar('password')
-        ];
+        $loginAttempt = $this->Adminmodel
+            ->where('username', $this->request->getVar('username'))
+            ->where('password', $this->request->getVar('password'))
+            ->findAll();
 
-        $loginAttempt = ;
-
-        if (!$loginAttempt->isOK()) {
-            return redirect()->back()->with('error', $loginAttempt->reason());
+        if (count($loginAttempt) > 0) {
+            return 'sukses';
         }
+        return 'gagal';
     }
 }
