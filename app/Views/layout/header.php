@@ -101,7 +101,7 @@
                     <a href="/kelurahan" class="nav-item nav-link <?= ($page == 'kelurahan') ? 'active' : '' ?>"><i class="fa fa-th me-2"></i>Kelurahan</a>
                     <a href="/kecamatan" class="nav-item nav-link <?= ($page == 'kecamatan') ? 'active' : '' ?>"><i class="fa fa-th me-2"></i>Kecamatan</a>
                     <a href="/ulasan" class="nav-item nav-link <?= ($page == 'ulasan') ? 'active' : '' ?>"><i class="fa fa-th me-2"></i>Ulasan</a>
-                    <a href="/admin" class="nav-item nav-link <?= ($page == 'admin') ? 'active' : '' ?>"><i class="fa fa-th me-2"></i>Admin</a>
+                    <a href="/administrator" class="nav-item nav-link <?= ($page == 'admin') ? 'active' : '' ?>"><i class="fa fa-th me-2"></i>Admin</a>
 
 
             </nav>
