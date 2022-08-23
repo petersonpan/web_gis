@@ -136,9 +136,9 @@ class Tempat extends BaseController
         helper(['form', 'url']);
         $this->tempatmodel->update($id, [
 
-            'nama_tempat'            => $this->request->getVar('tempat'),
+            'nama_tempat'            => $this->request->getVar('nama_tempat'),
             'id_kecamatan'           => $this->request->getVar('id_kecamatan'),
-            'keterangan_tempat'      => $this->request->getVar('keterangan'),
+            'keterangan_tempat'      => $this->request->getVar('keterangan_tempat'),
             'jarak'                  => $this->request->getVar('jarak'),
         ]);
         return redirect()->to('/tempat');
