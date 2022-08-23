@@ -13,7 +13,7 @@
                 <?= csrf_field(); ?>
 
                     <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Keterangan</label>
+                    <label for="exampleInputPassword1" class="form-label">Nama Jenis</label>
                     <input type="text" value="<?=old('jenis')?>" class="form-control <?=$validation->hasError('jenis')   ?  'is-invalid' : null ?>" autofocus id="jenis" name="jenis">
                     <div class="invalid-feedback">
                         <?= $validation->getError('jenis'); ?>
