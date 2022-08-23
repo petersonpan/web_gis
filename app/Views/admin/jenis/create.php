@@ -7,17 +7,26 @@
         <div class="col-12">
             <div class="bg-light rounded h-100 p-4">
                 <h4 class="mb-4"><?php echo $title ?></h4>
+                <?php $validation = \Config\Services::validation();?>
 
                 <form action="/jenis/simpan" method="post">
                 <?= csrf_field(); ?>
+
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Jenis Wisata</label>
-                        <input type="text" class="form-control" id="kecamatan" name="jenis" aria-describedby="emailHelp">
+                    <label for="exampleInputPassword1" class="form-label">Keterangan</label>
+                    <input type="text" value="<?=old('jenis')?>" class="form-control <?=$validation->hasError('jenis')   ?  'is-invalid' : null ?>" autofocus id="jenis" name="jenis">
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('jenis'); ?>
+
+                         </div>
                     </div>
 
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Keterangan</label>
-                        <input type="text" class="form-control" name="Keterangan" id="Keterangan">
+                        <input type="text" value="<?=old('keterangan')?>" class="form-control <?=$validation->hasError('keterangan')   ?  'is-invalid' : null ?>" autofocus id="keterangan" name="keterangan">
+                        <div class="invalid-feedback">
+                                <?= $validation->getError('keterangan'); ?>
+                            </div>
                     </div>
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </form>

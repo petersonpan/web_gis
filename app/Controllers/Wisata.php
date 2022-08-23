@@ -45,12 +45,14 @@ class Wisata extends BaseController
         $jenis      = $this->Jenismodel->findAll();
         $tempat     = $this->tempatmodel->findAll();
         $fasilitas  = $this->fasilitasmodel->findAll();
+        $objek      = $this->Wisatamodel->findAll();
         $data = [
             'title'     => 'Tambah Data Objek Wisata',
             'jenis'     => $jenis,
             'tempat'    => $tempat,
             'fasilitas' => $fasilitas,
-            'validation' => \Config\Services::validation()
+            'validation' => \Config\Services::validation(),
+            'page' => 'wisata',
         ];
         return view('admin/wisata/create', $data);
     }
@@ -59,38 +61,6 @@ class Wisata extends BaseController
 
     public function simpan()
     {
-
-        if(!$this->validate(
-                [
-            'nama_wisata'=>[
-                'rules'     =>'required | is_unique[object_wisata.nama_wisata]',
-                'errors'    =>[
-                    'required'=>'{field} tidak boleh kosong',
-                    'is_unique'=>'{field} nama sudah terdaftar'
-                ]
-                ],
-
-            'jenis_wisata'=>[
-              'rules'     =>'required | is_unique[object_wisata.id_jenis]',
-              'erors'     => [
-                    'required' => '{field} tidak boleh kosong',
-                    'is_unique'=>' {field} nama sudah terdaftar'
-              ]
-
-            ],
-
-            'foto'=>[
-                'rules' =>'upload[berkas]|mime_in[berkas,image/jpg,image/jpeg,image/gif,image/png] |max size [berkas,2048]',
-                'erros' => [
-                    'uploaded' =>'harus ada file yang di upload',
-                    'mime_in'  =>'file extension harus berupa jpg,jpeg,gif,png',
-                    'max_size' =>'ukuran file maksimal 2 MB'
-                ]
-                ],
-      ]))
-
-
-
 
         $foto = $this->request->getFile('foto');
         $namafoto= $foto->getRandomName();
@@ -122,6 +92,7 @@ class Wisata extends BaseController
         $objek   = $this->Wisatamodel->join('jenis_wisata', 'object_wisata.id_jenis = jenis_wisata.id_jenis')
             ->join('fasilitas', 'object_wisata.id_fasilitas = fasilitas.id_fasilitas')
             ->join('tempat_wisata', 'object_wisata.id_tempat = tempat_wisata.id_tempat')
+            ->select(['object_wisata.*', 'tempat_wisata.nama_tempat', 'jenis_wisata.nama_jenis', 'fasilitas.keterangan AS nama_fasilitas'])
             ->where('object_wisata.id_wisata', $id)->find($id);
 
         $data = [

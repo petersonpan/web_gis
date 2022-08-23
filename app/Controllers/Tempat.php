@@ -40,6 +40,40 @@ class Tempat extends BaseController
 
     public function simpan()
     {
+
+
+        $validate=$this->validate([
+            'nama_tempat'=>[
+                'rules'=>'required|min_length[3]',
+                'errors'=>[
+                    'required' =>   'Data Harus Diisi.',
+                    'min_length' => 'Data harus diisi minimal 3 karakter.',
+                ]
+                ],
+
+            'keterangan_tempat'=>[
+                'rules'=>'required|min_length[3]',
+                'errors'=>[
+                    'required' =>   'Data Harus Diisi.',
+                    'min_length' => 'Data harus diisi minimal 3 karakter.',
+                ]
+                ],
+            'jarak'=>[
+                'rules'=>'required|min_length[3]',
+                'errors'=>[
+                    'required' =>   'Data Harus Diisi.',
+                    'min_length' => 'Data  harus diisi minimal 3 karakter.',
+                ]
+                ],
+           ]);
+    
+           if(!$validate){
+            return redirect()->back()->withInput()->with('error','Mohon cek kembali data inputan anda');
+           }
+    
+
+
+
         helper(['form', 'url']);
         $this->tempatmodel->save([
 
@@ -67,6 +101,38 @@ class Tempat extends BaseController
 
     public function update($id)
     {
+
+        $validate=$this->validate([
+            'nama_tempat'=>[
+                'rules'=>'required|min_length[3]',
+                'errors'=>[
+                    'required' =>   'Data Harus Diisi.',
+                    'min_length' => 'Data harus diisi minimal 3 karakter.',
+                ]
+                ],
+
+            'keterangan_tempat'=>[
+                'rules'=>'required|min_length[3]',
+                'errors'=>[
+                    'required' =>   'Data Harus Diisi.',
+                    'min_length' => 'Data harus diisi minimal 3 karakter.',
+                ]
+                ],
+            'jarak'=>[
+                'rules'=>'required|min_length[3]',
+                'errors'=>[
+                    'required' =>   'Data Harus Diisi.',
+                    'min_length' => 'Data  harus diisi minimal 3 karakter.',
+                ]
+                ],
+           ]);
+    
+           if(!$validate){
+            return redirect()->back()->withInput()->with('error','Mohon cek kembali data inputan anda');
+           }
+
+           
+
         helper(['form', 'url']);
         $this->tempatmodel->update($id, [
 

@@ -7,17 +7,26 @@
         <div class="col-12">
             <div class="bg-light rounded h-100 p-4">
                 <h4 class="mb-4"><?php echo $title ?></h4>
-
+                <?php $validation = \Config\Services::validation();?>
                 <form action="/kecamatan/simpan" method="post">
                 <?= csrf_field(); ?>
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Nama Kecamatan</label>
-                        <input type="text" class="form-control" id="kecamatan" name="kecamatan" aria-describedby="emailHelp">
+                
+                <div class="mb-3">
+                 <label for="exampleInputPassword1" class="form-label">Kecamatan</label>
+                    <input type="text" value="<?=old('kecamatan')?>" class="form-control <?=$validation->hasError('kecamatan')   ?  'is-invalid' : null ?>" autofocus id="kecamatan" name="kecamatan">
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('kecamatan'); ?>
+
+                         </div>
                     </div>
 
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Keterangan</label>
-                        <input type="text" class="form-control" name="Keterangan" id="Keterangan">
+                        <input type="text" value="<?=old('keterangan')?>" class="form-control <?=$validation->hasError('keterangan')   ?  'is-invalid' : null ?>" autofocus id="keterangan" name="keterangan">
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('kecamatan'); ?>
+
+                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </form>

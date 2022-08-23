@@ -13,9 +13,13 @@
 
 
                     <div class="mb-3">
+                    <?php $validation = \Config\Services::validation();?>
                         <label for="exampleInputPassword1" class="form-label">Keterangan</label>
-                        <input type="text" class="form-control" value="<?= $fasilitas['keterangan']; ?>"
-                            name="Keterangan" id="Keterangan">
+                        <input type="text" value="<?= $fasilitas['keterangan']; ?>" class="form-control <?=$validation->hasError('keterangan')   ?  'is-invalid' : null ?>" autofocus 
+                            name="keterangan" id="keterangan">
+                            <div class="invalid-feedback">
+                                <?= $validation->getError('keterangan'); ?>
+                            </div>
                     </div>
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </form>
