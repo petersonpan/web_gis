@@ -32,14 +32,17 @@ class Wisata extends BaseController
 
     public function create()
     {
-        $jenis   = $this->Jenismodel->findAll();
-        $tempat   = $this->tempatmodel->findAll();
-        $fasilitas   = $this->fasilitasmodel->findAll();
+        session();
+
+        $jenis      = $this->Jenismodel->findAll();
+        $tempat     = $this->tempatmodel->findAll();
+        $fasilitas  = $this->fasilitasmodel->findAll();
         $data = [
-            'title' => 'Tambah Data Objek Wisata',
-            'jenis' => $jenis,
-            'tempat' => $tempat,
-            'fasilitas' => $fasilitas
+            'title'     => 'Tambah Data Objek Wisata',
+            'jenis'     => $jenis,
+            'tempat'    => $tempat,
+            'fasilitas' => $fasilitas,
+            'validation' => \Config\Services::validation()
         ];
         return view('admin/wisata/create', $data);
     }
@@ -49,10 +52,47 @@ class Wisata extends BaseController
     public function simpan()
     {
 
+        if(!$this->validate(
+                [
+            'nama_wisata'=>[
+                'rules'     =>'required | is_unique[object_wisata.nama_wisata]',
+                'errors'    =>[
+                    'required'=>'{field} tidak boleh kosong',
+                    'is_unique'=>'{field} nama sudah terdaftar'
+                ]
+                ],
+
+            'jenis_wisata'=>[
+              'rules'     =>'required | is_unique[object_wisata.id_jenis]',
+              'erors'     => [
+                    'required' => '{field} tidak boleh kosong',
+                    'is_unique'=>' {field} nama sudah terdaftar'
+              ]
+
+            ],
+
+            'foto'=>[
+                'rules' =>'upload[berkas]|mime_in[berkas,image/jpg,image/jpeg,image/gif,image/png] |max size [berkas,2048]',
+                'erros' => [
+                    'uploaded' =>'harus ada file yang di upload',
+                    'mime_in'  =>'file extension harus berupa jpg,jpeg,gif,png',
+                    'max_size' =>'ukuran file maksimal 2 MB'
+                ]
+                ],
+      ]))
+
+
+
+
         $foto = $this->request->getFile('foto');
-        $namafoto= $foto->getRandomName();
-        $foto->move('img',$namafoto);
-        helper(['form', 'url']); 
+        if($foto->getError() == 4){
+            $namafoto='default.jpg';
+        }else{
+
+            $namafoto= $foto->getRandomName();
+            $foto->move('img',$namafoto);
+        }
+     
         $this->Wisatamodel->save([
 
             'nama_wisata'        => $this->request->getVar('nama_wisata'),
@@ -117,7 +157,12 @@ class Wisata extends BaseController
 
         $this->Wisatamodel->delete($id);
 
-        return redirect()->to('/tempat');
+        // if($komik['foto']  != 'default.jpg'){
+        //     // hapus gambar
+        //     unlink('img/'. $komik['foto'])
+        // }
+
+        return redirect()->to('/wisata');
     }
 
     public function map()

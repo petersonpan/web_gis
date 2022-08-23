@@ -1,7 +1,7 @@
 <?php echo view('layout/header'); ?>
 
 <!-- Table Start -->
-
+<?= \Config\Services::validation()->listErrors(); ?>
 <div class="container-fluid pt-4 ">
     <div class="row">
         <div class="col-12">
@@ -13,7 +13,11 @@
 
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Nama Wisata</label>
-                        <input type="text" name="nama_wisata" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <input type="text" value="<?= old('nama_wisata')  ?>" name="nama_wisata" class="form-control" <?= ($validation->hasError('judul')) ? 'is-invalid' : '' ; ?> id="nama_wisata">
+
+                        <div class="invalid-feedback">
+                            <?=$validation->getError('nama_wisata')?>
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Jenis Wisata</label>
@@ -33,7 +37,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Tempat Wisata</label>
-                        <select class="form-select" required id="floatingSelect" name="id_tempat" aria-label="Floating label select example">
+                        <select class="form-select" required id="id_tempat" name="id_tempat" aria-label="Floating label select example">
                             <option selected>-- Pilih Tempat wisata --</option>
                             <?php
                             if (!empty($tempat)) {
@@ -50,7 +54,7 @@
                     <div class="mb-3">
 
                         <label for="exampleInputEmail1" class="form-label">Fasilitas</label>
-                        <select class="form-select" required id="floatingSelect" name="id_fasilitas" aria-label="Floating label select example">
+                        <select class="form-select" required id="id_fasilitas" name="id_fasilitas" aria-label="Floating label select example">
                             <option selected>-- Pilih Fasilitas --</option>
                             <?php
                             if (!empty($fasilitas)) {
@@ -66,20 +70,20 @@
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Longitude</label>
-                        <input type="text" name="longitude" class="form-control" id="exampleInputPassword1">
+                        <input type="text" name="longitude" class="form-control" id="longitude">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Latitude</label>
-                        <input type="text" name="latitude" class="form-control" id="exampleInputPassword1">
+                        <input type="text" name="latitude" class="form-control" id="latitude">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Foto</label>
-                        <input type="file" name="foto" class="form-control" id="exampleInputPassword1">
+                        <input type="file" name="foto" class="form-control" id="foto">
 
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Keterangan</label>
-                        <input type="text" name="keterangan" class="form-control" id="exampleInputPassword1">
+                        <input type="text" name="keterangan" class="form-control" id="keterangan">
                     </div>
                     <button type="submit" class="btn btn-primary">Simpan</button>
                  </form>
