@@ -124,8 +124,8 @@
         <form class="form1" method="post" action="/auth/login">
             <?= csrf_field(); ?>
 
-            <input required class="un" type="text" align="center" placeholder="Username">
-            <input required class="pass" type="password" align="center" placeholder="Password">
+            <input required class="un" name="username" type="text" align="center" placeholder="Username">
+            <input required class="pass" name="password" type="password" align="center" placeholder="Password">
             <button type="submit" class="submit" align="center">Sign in</button>
             <!-- <p class="forgot" align="center"><a href="#">Forgot Password?</p> -->
 

@@ -9,6 +9,7 @@ class User extends BaseController
     public function __construct()
     {
         $this->Wisatamodel = new Mwisata();
+        $this->AdminModel = new Mwisata();
     }
     public function index()
     {
@@ -58,5 +59,15 @@ class User extends BaseController
 
     public function authLogin()
     {
+        $credential = [
+            'username'    => $this->request->getVar('username'),
+            'password' => $this->request->getVar('password')
+        ];
+
+        $loginAttempt = ;
+
+        if (!$loginAttempt->isOK()) {
+            return redirect()->back()->with('error', $loginAttempt->reason());
+        }
     }
 }
