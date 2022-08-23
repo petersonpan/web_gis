@@ -30,32 +30,33 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <?php $i = 1; ?>
-                                <?php foreach ($objek_wisata as $sd) : ?>
-                            <tr>
-                                <th scope="row"><?= $i++; ?></th>
-                                <td><?php echo $sd['nama_wisata']; ?> <br>
-                                    <span class="badge bg-secondary" style="font-size: 11px"><?php echo $sd['nama_jenis']; ?></span>
-                                </td>
-                                <td><?php echo $sd['nama_tempat']; ?></td>
-                                <td><?php echo $sd['nama_fasilitas']; ?></td>
-                                <td><?php echo $sd['longitude'] . '<br>' . $sd['latitude']; ?></td>
-                                <td><img src="img/<?= $sd['foto'] ?>" width="100px" alt=""></td>
-                                <td><?php echo $sd['keterangan']; ?></td>
-                                <td>
-                                    <a href="/wisata/edit/<?= $sd['id_wisata']; ?>" class="btn btn-primary">Edit</a>
-                                    <form action="/wisata/<?= $sd['id_wisata']; ?>" class="d-inline" method="post">
-                                        <?= csrf_field(); ?>
-                                        <input type="hidden" name="_method" value="DELETE">
-                                        <button type="submit" class="btn btn-danger">Hapus</button>
-                                    </form>
+                            <?php $i = 1; ?>
+                            <?php foreach ($objek_wisata as $sd) : ?>
+                                <tr>
+                                    <th scope="row"><?= $i++; ?></th>
+                                    <td><?php echo $sd['nama_wisata']; ?> <br>
+                                        <span class="badge bg-secondary" style="font-size: 11px"><?php echo $sd['nama_jenis']; ?></span>
+                                    </td>
+                                    <td><?php echo $sd['nama_tempat']; ?></td>
+                                    <td><?php echo $sd['nama_fasilitas']; ?></td>
+                                    <td><code><?php echo "lat: " . round($sd['longitude'], 2, PHP_ROUND_HALF_UP) . '<br> long: ' . round($sd['latitude'], 1, PHP_ROUND_HALF_UP); ?></code></td>
+                                    <td class="align-middle">
+                                        <a target="_blank" href="<?= base_url() ?>/img/<?= $sd['foto'] ?>">
+                                            <img style="border-radius: 8px" src="<?= base_url() ?>/img/<?= $sd['foto'] ?>" width="100px" alt="">
+                                        </a>
+                                    </td>
+                                    <td style="max-width: 200px;"><?php echo $sd['keterangan']; ?></td>
+                                    <td>
+                                        <a href="/wisata/edit/<?= $sd['id_wisata']; ?>" class="btn btn-primary">Edit</a>
+                                        <form action="/wisata/<?= $sd['id_wisata']; ?>" class="d-inline" method="post">
+                                            <?= csrf_field(); ?>
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <button type="submit" class="btn btn-danger">Hapus</button>
+                                        </form>
+                                    </td>
+                                </tr>
 
-                                </td>
-
-                            </tr>
-
-                        <?php endforeach; ?>
+                            <?php endforeach; ?>
 
                         </tbody>
                     </table>
