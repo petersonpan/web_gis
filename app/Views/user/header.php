@@ -37,10 +37,35 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 
 <body>
-
+    <?php if (session()->has('success')) {
+    ?>
+        <script>
+            Swal.fire({
+                title: 'Berhasil!',
+                text: '<?= session('success') ?>',
+                icon: 'success',
+                confirmButtonText: 'Tutup'
+            })
+        </script>
+    <?php
+    } ?>
+    <?php if (session()->has('error')) {
+    ?>
+        <script>
+            Swal.fire({
+                title: 'Gagal!',
+                text: '<?= session('error') ?>',
+                icon: 'error',
+                confirmButtonText: 'Ok'
+            })
+        </script>
+    <?php
+    } ?>
     <!-- ======= Header ======= -->
     <header id="header">
         <div class="container d-flex align-items-center justify-content-between">
