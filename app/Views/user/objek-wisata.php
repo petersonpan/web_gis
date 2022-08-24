@@ -33,7 +33,7 @@
                                         </figure>
                                     </div>
                                     <div class="col-lg-8">
-                                        <h4><?= $r['nama_wisata'] ?></h4>
+                                        <h4><a href="#" style="color: red" onclick="omong('<?= $r['keterangan'] ?>')"><i class="bi bi-play-circle-fill"></i></a> <?= $r['nama_wisata'] ?></h4>
                                         <div class="subtitle mb-3">
                                             <span class="badge bg-primary"><?= $r['nama_tempat'] ?></span>
                                             <span class="badge bg-secondary"><?= $r['nama_jenis'] ?></span>

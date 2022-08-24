@@ -26,6 +26,21 @@
 
 <!-- Template Main JS File -->
 <script src="<?= base_url('user-template/assets/js/main.js') ?>"></script>
+<script src="<?= base_url('template/js/voicerss-tts.min.js') ?>"></script>
+<script>
+    function omong(text) {
+        VoiceRSS.speech({
+            key: 'becd31bb41814a95995a38dcc4b96210',
+            src: text,
+            hl: 'id-id',
+            r: 0,
+            c: 'mp3',
+            f: '44khz_16bit_stereo',
+            ssml: false
+        });
+
+    }
+</script>
 
 </body>
 
