@@ -9,9 +9,10 @@
                 <h4 class="mb-4"><?php echo $title ?></h4>
                 <?php $validation = \Config\Services::validation(); ?>
 
-                <form action="/jenis/update/<?= $jenis['id_jenis'] ?>" method="post">
+                <form action="/jenis/update/<?= $jenis['id_jenis']; ?>" method="post">
                     <?= csrf_field(); ?>
                     <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Jenis wisata</label>
                         <input type="text" value="<?= $jenis['nama_jenis'] ?>" class="form-control <?= $validation->hasError('jenis')   ?  'is-invalid' : null ?>" autofocus id="jenis" name="jenis">
 
                         <div class="invalid-feedback">

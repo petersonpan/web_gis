@@ -13,8 +13,6 @@ class Jenis extends BaseController
     }
     public function index()
     {
-
-
         $jenis   = $this->jenismodel->findAll();
         $data = [
             'title' => 'Data Jenis wisata',
@@ -107,9 +105,6 @@ class Jenis extends BaseController
         if (!$validate) {
             return redirect()->back()->withInput()->with('error', 'Mohon cek kembali data inputan anda');
         }
-
-
-
 
         helper(['form', 'url']);
         $this->jenismodel->update($id, [

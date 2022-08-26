@@ -107,13 +107,11 @@ class Kecamatan extends BaseController
             return redirect()->back()->withInput()->with('error','Mohon cek kembali data inputan anda');
            }
 
-
-        helper(['form', 'url']);
-        $this->KecamatanModel->update($id, [
-
+             $this->KecamatanModel->update($id, [
             'nama_kecamatan'    => $this->request->getVar('kecamatan'),
-            'keterangan'        => $this->request->getVar('keterangan')
+            'keterangan'        => $this->request->getVar('keterangan'),
         ]);
+       
         return redirect()->to('/kecamatan');
     }
 
