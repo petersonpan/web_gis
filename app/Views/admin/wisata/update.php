@@ -26,7 +26,7 @@
                                     <option value="<?php echo $u['id_jenis']; ?>" <?php if ($u['id_jenis'] == $objek_wisata['id_jenis']) {
                                                                                         echo 'selected';
                                                                                     } ?>>
-                                        <?= $u['keterangan'] ?>
+                                        <?= $u['nama_jenis'] ?>
                                     </option>
                             <?php
                                 }

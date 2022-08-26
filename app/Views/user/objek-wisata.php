@@ -20,10 +20,29 @@
     <section class="inner-page">
         <div class="container">
             <div class="row">
+
+                <form action="/objek-wisata">
+                    <div class="input-group mb-3">
+                        <select name="q" class="form-select shadow">
+                            <option value="">Semua</option>
+                            <?php
+                            foreach ($jenis as $j) {
+                            ?>
+                                <option value="<?= $j['id_jenis'] ?>"><?= $j['nama_jenis'] ?></option>
+                            <?php
+                            }
+                            ?>
+                        </select>
+                        <button class="btn btn-secondary shadow" type="submit"><i class="bi bi-search"></i> Cari</button>
+                    </div>
+                </form>
+
+            </div>
+            <div class="row">
                 <?php
                 foreach ($objek_wisata as $r) {
                 ?>
-                    <div class="col-lg-12 mb-3">
+                    <div class="col-lg-12 mb-3" data-jenis="<?= $r['nama_jenis'] ?>">
                         <div class="card border-0 shadow" style="border-radius: 20px;">
                             <div class="card-body">
                                 <div class="row">

@@ -38,28 +38,28 @@ class Jenis extends BaseController
     public function simpan()
     {
 
-        $validate=$this->validate([
-            'keterangan'=>[
-                'rules'=>'required|min_length[3]',
-                'errors'=>[
+        $validate = $this->validate([
+            'keterangan' => [
+                'rules' => 'required|min_length[3]',
+                'errors' => [
                     'required' =>   'Data Harus Diisi.',
                     'min_length' => 'Data {field} minimal 3 karakter.',
                 ]
-                ],
+            ],
 
-            'jenis'=>[
-                'rules'=>'required|min_length[3]',
-                'errors'=>[
+            'jenis' => [
+                'rules' => 'required|min_length[3]',
+                'errors' => [
                     'required' =>   'Data Harus Diisi.',
                     'min_length' => 'Data  {field} minimal 3 karakter.',
                 ]
             ]
-           ]);
-    
-           if(!$validate){
-            return redirect()->back()->withInput()->with('error','Mohon cek kembali data inputan anda');
-           }
-    
+        ]);
+
+        if (!$validate) {
+            return redirect()->back()->withInput()->with('error', 'Mohon cek kembali data inputan anda');
+        }
+
 
 
         helper(['form', 'url']);
@@ -86,35 +86,35 @@ class Jenis extends BaseController
     public function update($id)
     {
 
-        $validate=$this->validate([
-            'keterangan'=>[
-                'rules'=>'required|min_length[3]',
-                'errors'=>[
+        $validate = $this->validate([
+            'keterangan' => [
+                'rules' => 'required|min_length[3]',
+                'errors' => [
                     'required' =>   'Data Harus Diisi.',
                     'min_length' => 'Data keterangan minimal 3 karakter.',
                 ]
-                ],
+            ],
 
-            'jenis'=>[
-                'rules'=>'required|min_length[3]',
-                'errors'=>[
+            'jenis' => [
+                'rules' => 'required|min_length[3]',
+                'errors' => [
                     'required' =>   'Data Harus Diisi.',
                     'min_length' => 'Data keterangan minimal 3 karakter.',
                 ]
             ]
-           ]);
-    
-           if(!$validate){
-            return redirect()->back()->withInput()->with('error','Mohon cek kembali data inputan anda');
-           }
-    
+        ]);
+
+        if (!$validate) {
+            return redirect()->back()->withInput()->with('error', 'Mohon cek kembali data inputan anda');
+        }
+
 
 
 
         helper(['form', 'url']);
         $this->jenismodel->update($id, [
             'nama_jenis'        => $this->request->getVar('jenis'),
-            'keterangan'        => $this->request->getVar('Keterangan')
+            'keterangan'        => $this->request->getVar('keterangan')
         ]);
         return redirect()->to('/jenis');
     }

@@ -63,9 +63,9 @@ class Wisata extends BaseController
     {
 
         $foto = $this->request->getFile('foto');
-        $namafoto= $foto->getRandomName();
-        $foto->move('img',$namafoto);
-        helper(['form', 'url']); 
+        $namafoto = $foto->getRandomName();
+        $foto->move('img', $namafoto);
+        helper(['form', 'url']);
         $this->Wisatamodel->save([
 
             'nama_wisata'        => $this->request->getVar('nama_wisata'),

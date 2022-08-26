@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Madmin;
+use App\Models\Mjenis;
 use App\Models\Mwisata;
 
 class User extends BaseController
@@ -11,6 +12,7 @@ class User extends BaseController
     {
         $this->Wisatamodel = new Mwisata();
         $this->Adminmodel = new Madmin();
+        $this->Jenis = new Mjenis();
     }
     public function index()
     {
@@ -34,16 +36,29 @@ class User extends BaseController
     }
     public function objekWisata()
     {
-        $objek   = $this->Wisatamodel
-            ->join('jenis_wisata', 'object_wisata.id_jenis = jenis_wisata.id_jenis')
-            ->join('fasilitas', 'object_wisata.id_fasilitas = fasilitas.id_fasilitas')
-            ->join('tempat_wisata', 'object_wisata.id_tempat = tempat_wisata.id_tempat')
-            ->select(['object_wisata.*', 'tempat_wisata.nama_tempat', 'jenis_wisata.nama_jenis', 'fasilitas.keterangan AS nama_fasilitas'])
-            ->findAll();
+        if ($this->request->getVar('q') != null) {
+            $objek   = $this->Wisatamodel
+                ->join('jenis_wisata', 'object_wisata.id_jenis = jenis_wisata.id_jenis')
+                ->join('fasilitas', 'object_wisata.id_fasilitas = fasilitas.id_fasilitas')
+                ->join('tempat_wisata', 'object_wisata.id_tempat = tempat_wisata.id_tempat')
+                ->select(['object_wisata.*', 'tempat_wisata.nama_tempat', 'jenis_wisata.nama_jenis', 'fasilitas.keterangan AS nama_fasilitas'])
+                ->where('jenis_wisata.id_jenis', $this->request->getVar('q'))
+                ->findAll();
+        } else {
+            $objek   = $this->Wisatamodel
+                ->join('jenis_wisata', 'object_wisata.id_jenis = jenis_wisata.id_jenis')
+                ->join('fasilitas', 'object_wisata.id_fasilitas = fasilitas.id_fasilitas')
+                ->join('tempat_wisata', 'object_wisata.id_tempat = tempat_wisata.id_tempat')
+                ->select(['object_wisata.*', 'tempat_wisata.nama_tempat', 'jenis_wisata.nama_jenis', 'fasilitas.keterangan AS nama_fasilitas'])
+                ->findAll();
+        }
+
+        $jenis = $this->Jenis->findAll();
         $data = [
             'title' => 'Pariwisata Sabu Raijua | Objek Wisata',
             'page' => 'objek',
             'objek_wisata' => $objek,
+            'jenis' => $jenis,
 
         ];
         return view('user/objek-wisata', $data);

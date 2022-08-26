@@ -71,7 +71,7 @@
         <div class="container d-flex align-items-center justify-content-between">
 
             <div class="logo">
-                <h1><a href="/">SIG SABU RAIJUA<span>.</span></a></h1>
+                <h1><a href="/"><img src="<?= base_url() ?>/assets-img/logo.png" alt=""> SIG SABU RAIJUA<span>.</span></a></h1>
                 <!-- Uncomment below if you prefer to use an image logo -->
                 <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
             </div>
@@ -80,6 +80,7 @@
                 <ul>
                     <li><a class="nav-link <?= ($page == 'home') ? 'active' : '' ?>" href="/">Home</a></li>
                     <li><a class="nav-link  <?= ($page == 'objek') ? 'active' : '' ?>" href="/objek-wisata">Objek Wisata</a></li>
+                    <li><a class="nav-link  <?= ($page == 'login') ? 'active' : '' ?>" href="/login">Login</a></li>
 
                     <li><a class="getstarted scrollto" href="/map"><i class="bi bi-map"></i> &nbsp; Lihat Map</a></li>
                 </ul>
