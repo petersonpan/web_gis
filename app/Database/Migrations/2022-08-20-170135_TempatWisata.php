@@ -13,7 +13,6 @@ class TempatWisata extends Migration
             'id_tempat'          => [
                 'type'              => 'INT',
                 'constraint'        => 5,
-                'unsigned'          => true,
                 'auto_increment'    => true
             ],
 
@@ -24,7 +23,6 @@ class TempatWisata extends Migration
             'id_kecamatan'        => [
                 'type'          => 'BIGINT',
                 'constraint'    => '5',
-                'unsigned'      => true,
             ],
             'keterangan_tempat'        => [
                 'type'          => 'text',

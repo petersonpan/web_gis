@@ -13,7 +13,6 @@ class Uploads extends Migration
             'id_upload'          => [
             'type'              => 'INT',
             'constraint'        => 5,
-            'unsigned'          =>true,
             'auto_increment'    =>true
             ],
 

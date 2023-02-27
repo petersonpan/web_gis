@@ -16,7 +16,7 @@
                 </h4>
 
                 <div class="table-responsive">
-                    <table class="table">
+                    <table class="table"> 
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -35,7 +35,8 @@
                                 <tr>
                                     <th scope="row"><?= $i++; ?></th>
                                     <td><?php echo $sd['nama_wisata']; ?> <br>
-                                        <span class="badge bg-secondary" style="font-size: 11px"><?php echo $sd['nama_jenis']; ?></span>
+                                        <span class="badge bg-secondary" style="font-size: 11px"><?php echo $sd['nama_jenis'];?></span>
+
                                     </td>
                                     <td><?php echo $sd['nama_tempat']; ?></td>
                                     <td><?php echo $sd['nama_fasilitas']; ?></td>

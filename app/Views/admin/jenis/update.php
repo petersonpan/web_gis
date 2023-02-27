@@ -9,7 +9,7 @@
                 <h4 class="mb-4"><?php echo $title ?></h4>
                 <?php $validation = \Config\Services::validation(); ?>
 
-                <form action="/jenis/update/<?= $jenis['id_jenis']; ?>" method="post">
+                <form action="/jenis/update/<?= $jenis['id_jenis']; ?>" method="post" enctype="multipart/form-data">
                     <?= csrf_field(); ?>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Jenis wisata</label>
@@ -26,6 +26,12 @@
                         <div class="invalid-feedback">
                             <?= $validation->getError('keterangan'); ?>
                         </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Foto Jenis Wisata</label>
+                        <input type="file" name="foto" class="form-control" id="foto">
+                        <span class="float-end text-sm text-muted">*Foto akan merepresentasikan jenis wisata ini (<b>Kosongi jika tidak ingin mengubah</b>)</span>
                     </div>
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </form>

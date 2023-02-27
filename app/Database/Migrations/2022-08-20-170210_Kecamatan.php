@@ -13,7 +13,6 @@ class Kecamatan extends Migration
             'id_kecamatan'          => [
             'type'              => 'INT',
             'constraint'        => 5,
-            'unsigned'          =>true,
             'auto_increment'    =>true
             ],
 

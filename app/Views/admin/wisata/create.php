@@ -13,10 +13,10 @@
 
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Nama Wisata</label>
-                        <input type="text" value="<?= old('nama_wisata')  ?>" name="nama_wisata" class="form-control" <?= ($validation->hasError('judul')) ? 'is-invalid' : '' ; ?> id="nama_wisata">
+                        <input type="text" value="<?= old('nama_wisata')  ?>" name="nama_wisata" class="form-control" <?= ($validation->hasError('judul')) ? 'is-invalid' : ''; ?> id="nama_wisata">
 
                         <div class="invalid-feedback">
-                            <?=$validation->getError('nama_wisata')?>
+                            <?= $validation->getError('nama_wisata') ?>
                         </div>
                     </div>
                     <div class="mb-3">
@@ -37,36 +37,12 @@
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Tempat Wisata</label>
-                        <select class="form-select" required id="id_tempat" name="id_tempat" aria-label="Floating label select example">
-                            <option selected>-- Pilih Tempat wisata --</option>
-                            <?php
-                            if (!empty($tempat)) {
-                                foreach ($tempat as $u) {
-                            ?>
-                                    <option value="<?php echo $u['id_tempat']; ?>"><?php echo $u['nama_tempat']; ?>
-                                    </option>
-                            <?php
-                                }
-                            }
-                            ?>
-                        </select>
+                        <input type="text" class="form-control" name="nama_tempat">
                     </div>
                     <div class="mb-3">
 
                         <label for="exampleInputEmail1" class="form-label">Fasilitas</label>
-                        <select class="form-select" required id="id_fasilitas" name="id_fasilitas" aria-label="Floating label select example">
-                            <option selected>-- Pilih Fasilitas --</option>
-                            <?php
-                            if (!empty($fasilitas)) {
-                                foreach ($fasilitas as $u) {
-                            ?>
-                                    <option value="<?php echo $u['id_fasilitas']; ?>"><?php echo $u['keterangan']; ?>
-                                    </option>
-                            <?php
-                                }
-                            }
-                            ?>
-                        </select>
+                        <input type="text" class="form-control" name="nama_fasilitas">
                     </div>
                     <div class="mb-3 mt-2">
                         <h5>Lokasi Wisata</h5>

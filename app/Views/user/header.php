@@ -79,8 +79,9 @@
             <nav id="navbar" class="navbar">
                 <ul>
                     <li><a class="nav-link <?= ($page == 'home') ? 'active' : '' ?>" href="/">Home</a></li>
-                    <li><a class="nav-link  <?= ($page == 'objek') ? 'active' : '' ?>" href="/objek-wisata">Objek Wisata</a></li>
+                    <li><a class="nav-link  <?= ($page == 'objek') ? 'active' : '' ?>" href="/kategori">Objek Wisata</a></li>
                     <li><a class="nav-link  <?= ($page == 'login') ? 'active' : '' ?>" href="/login">Login</a></li>
+                    
 
                     <li><a class="getstarted scrollto" href="/map"><i class="bi bi-map"></i> &nbsp; Lihat Map</a></li>
                 </ul>

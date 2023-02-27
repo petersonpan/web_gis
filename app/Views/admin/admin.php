@@ -28,11 +28,11 @@
                         <tbody>
                             <tr>
                                 <th scope="row">1</th>
-                                <td>John</td>
-                                <td>Doe</td>
-                                <td>jhon@email.com</td>
-                                <td>USA</td>
-                                <td>123</td>
+                                <td>Armen</td>
+                                <td>Willa</td>
+                                <td>aermen@email.com</td>
+                                <td>juni</td>
+                                <td>210696</td>
                                 <td>Member</td>
                             </tr>
                             <tr>

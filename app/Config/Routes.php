@@ -42,6 +42,8 @@ $routes->set404Override();
 $routes->get('/', 'User::index');
 $routes->get('/map', 'User::map');
 $routes->get('/objek-wisata', 'User::objekWisata');
+$routes->post('/objek-wisata/rating', 'User::beriRating');
+$routes->get('/kategori', 'User::kategori');
 
 //LOGIN
 $routes->get('/login', 'User::login');

@@ -13,7 +13,6 @@ class ObjectWisata extends Migration
             'id_wisata'             => [
                 'type'                  => 'INT',
                 'constraint'            => 5,
-                'unsigned'              => true,
                 'auto_increment'        => true
             ],
 
@@ -25,18 +24,15 @@ class ObjectWisata extends Migration
             'id_jenis'              => [
                 'type'              => 'BIGINT',
                 'constraint'        => '5',
-                'unsigned'          => true,
             ],
-            'id_tempat'             => [
-                'type'              => 'BIGINT',
-                'constraint'        => '5',
-                'unsigned'          => true,
+            'nama_tempat'             => [
+                'type'              => 'VARCHAR',
+                'constraint'        => 255,
             ],
 
-            'id_fasilitas'          => [
-                'type'              => 'BIGINT',
-                'constraint'        => '5',
-                'unsigned'          => true,
+            'nama_fasilitas'          => [
+                'type'              => 'VARCHAR',
+                'constraint'        => 255,
             ],
 
             'longitude'             => [

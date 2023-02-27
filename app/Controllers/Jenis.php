@@ -27,7 +27,7 @@ class Jenis extends BaseController
 
         $data = [
             'page' => 'jenis_wisata',
-            'title' => 'Tambah Data Jenis Wisata'
+            'title' => 'Tambah Data Jenis Wisata',
         ];
         return view('admin/jenis/create', $data);
     }
@@ -36,6 +36,9 @@ class Jenis extends BaseController
     public function simpan()
     {
 
+        $foto = $this->request->getFile('foto');
+        $namafoto = $foto->getRandomName();
+        $foto->move('img', $namafoto);
         $validate = $this->validate([
             'keterangan' => [
                 'rules' => 'required|min_length[3]',
@@ -63,8 +66,9 @@ class Jenis extends BaseController
         helper(['form', 'url']);
         $this->jenismodel->save([
 
-            'nama_jenis'    => $this->request->getVar('jenis'),
-            'keterangan'        => $this->request->getVar('keterangan')
+            'nama_jenis' => $this->request->getVar('jenis'),
+            'keterangan' => $this->request->getVar('keterangan'),
+            'gambar' => $namafoto,
         ]);
         return redirect()->to('/jenis');
     }
@@ -106,11 +110,19 @@ class Jenis extends BaseController
             return redirect()->back()->withInput()->with('error', 'Mohon cek kembali data inputan anda');
         }
 
-        helper(['form', 'url']);
-        $this->jenismodel->update($id, [
+        $data = [
             'nama_jenis'        => $this->request->getVar('jenis'),
             'keterangan'        => $this->request->getVar('keterangan')
-        ]);
+        ];
+        if ($this->request->getFile('foto')->getPath() != null) {
+            $foto = $this->request->getFile('foto');
+            $namafoto = $foto->getRandomName();
+            $foto->move('img', $namafoto);
+            $data['gambar'] = $namafoto;
+        }
+
+        helper(['form', 'url']);
+        $this->jenismodel->update($id, $data);
         return redirect()->to('/jenis');
     }
 

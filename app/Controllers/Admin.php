@@ -51,7 +51,7 @@ class Admin extends BaseController
                 ],
         ]
        ]);
-
+       
        if(!$validate){
         return redirect()->back()->withInput()->with('error','Mohon cek kembali data inputan anda');
        }

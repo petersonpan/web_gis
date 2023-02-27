@@ -13,7 +13,6 @@ class Mkelurahan extends Migration
             'id_kelurahan'          => [
             'type'              => 'INT',
             'constraint'        => 5,
-            'unsigned'          =>true,
             'auto_increment'    =>true
             ],
 

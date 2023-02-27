@@ -36,42 +36,12 @@
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Tempat Wisata</label>
-                        <select class="form-select" required id="floatingSelect" name="id_tempat" aria-label="Floating label select example">
-                            <option selected>-- Pilih Tempat wisata --</option>
-                            <?php
-                            if (!empty($tempat)) {
-                                foreach ($tempat as $u) {
-                            ?>
-                                    <option value="<?php echo $u['id_tempat']; ?>" <?php if ($u['id_tempat'] == $objek_wisata['id_tempat']) {
-                                                                                        echo 'selected';
-                                                                                    } ?>>
-                                        <?php echo $u['nama_tempat']; ?>
-                                    </option>
-                            <?php
-                                }
-                            }
-                            ?>
-                        </select>
+                        <input type="text" class="form-control" name="nama_tempat" value="<?= $objek_wisata['nama_tempat'] ?>">
                     </div>
                     <div class="mb-3">
 
                         <label for="exampleInputEmail1" class="form-label">Fasilitas</label>
-                        <select class="form-select" required id="floatingSelect" name="id_fasilitas" aria-label="Floating label select example">
-                            <option selected>-- Pilih Fasilitas --</option>
-                            <?php
-                            if (!empty($fasilitas)) {
-                                foreach ($fasilitas as $u) {
-                            ?>
-                                    <option value="<?php echo $u['id_fasilitas']; ?>" <?php if ($u['id_fasilitas'] == $objek_wisata['id_fasilitas']) {
-                                                                                            echo 'selected';
-                                                                                        } ?>>
-                                        <?php echo $u['keterangan']; ?>
-                                    </option>
-                            <?php
-                                }
-                            }
-                            ?>
-                        </select>
+                        <input type="text" class="form-control" name="nama_fasilitas" value="<?= $objek_wisata['nama_fasilitas'] ?>">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">longitude</label>

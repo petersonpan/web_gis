@@ -10,5 +10,5 @@ class Mwisata extends Model
     protected $primaryKey = 'id_wisata';
     protected $useTimestamps = true;
 
-    protected $allowedFields = ['nama_wisata', 'id_jenis', 'id_tempat', 'id_fasilitas', 'longitude', 'latitude', 'foto', 'keterangan'];
+    protected $allowedFields = ['nama_wisata', 'id_jenis', 'nama_tempat', 'nama_fasilitas', 'longitude', 'latitude', 'foto', 'keterangan'];
 }

@@ -81,7 +81,7 @@ h6 {
   z-index: 997;
   transition: all 0.5s;
   padding: 16px 0;
-  background: #213b52;
+  background: blue;
 }
 
 #header .logo h1 {
@@ -362,8 +362,8 @@ h6 {
 #hero {
   width: 100%;
   padding: 0 0 0 0;
-  background: #213b52;
-  background: linear-gradient(180deg, #213b52 0%, rgb(33, 60, 84) 35%, rgb(32, 69, 100) 100%);
+  background: blue;
+  background: linear-gradient(180deg, blue 0%, blue (33, 60, 84) 35%, blue(32, 69, 100) 100%);
 }
 
 #hero h1 {
@@ -1286,7 +1286,7 @@ section {
   right: 0;
   top: 0;
   bottom: 0;
-  background: rgba(26, 46, 64, 0.85);
+  background: blue;
   z-index: 1;
 }
 

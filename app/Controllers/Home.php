@@ -14,9 +14,7 @@ class Home extends BaseController
     {
         $objek   = $this->Wisatamodel
             ->join('jenis_wisata', 'object_wisata.id_jenis = jenis_wisata.id_jenis')
-            ->join('fasilitas', 'object_wisata.id_fasilitas = fasilitas.id_fasilitas')
-            ->join('tempat_wisata', 'object_wisata.id_tempat = tempat_wisata.id_tempat')
-            ->select(['object_wisata.*', 'tempat_wisata.nama_tempat', 'jenis_wisata.nama_jenis', 'fasilitas.keterangan AS nama_fasilitas'])
+            ->select(['object_wisata.*', 'jenis_wisata.nama_jenis'])
             ->findAll();
         $data = [
             'title' => 'Dashboard',

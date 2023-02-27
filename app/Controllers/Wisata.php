@@ -24,9 +24,7 @@ class Wisata extends BaseController
     {
         $objek   = $this->Wisatamodel
             ->join('jenis_wisata', 'object_wisata.id_jenis = jenis_wisata.id_jenis')
-            ->join('fasilitas', 'object_wisata.id_fasilitas = fasilitas.id_fasilitas')
-            ->join('tempat_wisata', 'object_wisata.id_tempat = tempat_wisata.id_tempat')
-            ->select(['object_wisata.*', 'tempat_wisata.nama_tempat', 'jenis_wisata.nama_jenis', 'fasilitas.keterangan AS nama_fasilitas'])
+            ->select(['object_wisata.*', 'jenis_wisata.nama_jenis'])
             ->findAll();
         $data = [
             'title' => 'Data Objek Wisata',
@@ -70,8 +68,8 @@ class Wisata extends BaseController
 
             'nama_wisata'        => $this->request->getVar('nama_wisata'),
             'id_jenis'           => $this->request->getVar('id_jenis'),
-            'id_tempat'          => $this->request->getVar('id_tempat'),
-            'id_fasilitas'       => $this->request->getVar('id_fasilitas'),
+            'nama_tempat'           => $this->request->getVar('nama_tempat'),
+            'nama_fasilitas'        => $this->request->getVar('nama_fasilitas'),
             'longitude'          => $this->request->getVar('longitude'),
             'latitude'           => $this->request->getVar('latitude'),
             'foto'               => $namafoto,
@@ -87,12 +85,9 @@ class Wisata extends BaseController
 
 
         $jenis   = $this->Jenismodel->findAll();
-        $tempat   = $this->tempatmodel->findAll();
-        $fasilitas   = $this->fasilitasmodel->findAll();
-        $objek   = $this->Wisatamodel->join('jenis_wisata', 'object_wisata.id_jenis = jenis_wisata.id_jenis')
-            ->join('fasilitas', 'object_wisata.id_fasilitas = fasilitas.id_fasilitas')
-            ->join('tempat_wisata', 'object_wisata.id_tempat = tempat_wisata.id_tempat')
-            ->select(['object_wisata.*', 'tempat_wisata.nama_tempat', 'jenis_wisata.nama_jenis', 'fasilitas.keterangan AS nama_fasilitas'])
+        $objek   = $this->Wisatamodel
+            ->join('jenis_wisata', 'object_wisata.id_jenis = jenis_wisata.id_jenis')
+            ->select(['object_wisata.*', 'jenis_wisata.nama_jenis'])
             ->where('object_wisata.id_wisata', $id)->find($id);
 
         $data = [
@@ -100,8 +95,6 @@ class Wisata extends BaseController
             'objek_wisata' => $objek,
             'jenis' => $jenis,
             'page' => 'wisata',
-            'tempat' => $tempat,
-            'fasilitas' => $fasilitas
         ];
         return view('admin/wisata/update', $data);
     }
@@ -110,20 +103,26 @@ class Wisata extends BaseController
     {
         helper(['form', 'url']);
 
-        $foto = $this->request->getFile('foto');
-        $namafoto = $foto->getRandomName();
-        $foto->move('img', $namafoto);
-        $this->Wisatamodel->update($id, [
+
+        $data = [
 
             'nama_wisata'         => $this->request->getVar('nama_wisata'),
             'id_jenis'            => $this->request->getVar('id_jenis'),
-            'id_tempat'           => $this->request->getVar('id_tempat'),
-            'id_fasilitas'        => $this->request->getVar('id_fasilitas'),
+            'nama_tempat'           => $this->request->getVar('nama_tempat'),
+            'nama_fasilitas'        => $this->request->getVar('nama_fasilitas'),
             'longitude'           => $this->request->getVar('longitude'),
             'latitude'            => $this->request->getVar('latitude'),
-            'foto'                => $namafoto,
             'keterangan'          => $this->request->getVar('keterangan'),
-        ]);
+        ];
+
+        if ($this->request->getVar('foto') != null) {
+            $foto = $this->request->getFile('foto');
+            $namafoto = $foto->getRandomName();
+            $foto->move('img', $namafoto);
+            $data['foto'] = $namafoto;
+        }
+
+        $this->Wisatamodel->update($id, $data);
         return redirect()->to('/wisata');
     }
 
@@ -131,15 +130,13 @@ class Wisata extends BaseController
     {
         $this->Wisatamodel->delete($id);
 
-        return redirect()->to('/tempat');
+        return redirect()->to('/wisata');
     }
 
     public function map()
     {
         $objek   = $this->Wisatamodel->join('jenis_wisata', 'object_wisata.id_jenis = jenis_wisata.id_jenis')
-            ->join('fasilitas', 'object_wisata.id_fasilitas = fasilitas.id_fasilitas')
-            ->join('tempat_wisata', 'object_wisata.id_tempat = tempat_wisata.id_tempat')
-            ->select(['object_wisata.*', 'tempat_wisata.nama_tempat', 'jenis_wisata.nama_jenis', 'fasilitas.keterangan AS nama_fasilitas'])
+            ->select(['object_wisata.*', 'jenis_wisata.nama_jenis'])
             ->findAll();
         $data = [
             'title' => 'Map Objek Wisata',

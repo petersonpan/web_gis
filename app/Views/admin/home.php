@@ -18,7 +18,7 @@
     <?php
     foreach ($objek_wisata as $r) {
     ?>
-        L.marker([<?= $r['longitude'] ?>, <?= $r['latitude'] ?>])
+        L.marker([<?= $r['latitude'] ?>, <?= $r['longitude'] ?>])
             .addTo(map)
             .bindPopup("<h5><?= $r['nama_wisata'] ?></h5> <img src='<?= base_url() ?>/img/<?= $r['foto'] ?>' style='width: 100%'> <br> <div class='mt-2'><span class='badge bg-primary'><?= $r['nama_tempat'] ?></span> &nbsp; <span class='badge bg-secondary'><?= $r['nama_jenis'] ?></span> <br><div class='mt-2'><?= $r['keterangan'] ?></div>");
     <?php

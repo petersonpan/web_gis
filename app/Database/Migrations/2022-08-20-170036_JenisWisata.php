@@ -11,33 +11,37 @@ class JenisWisata extends Migration
         $this->forge->AddField([
 
             'id_jenis'          => [
-            'type'              => 'INT',
-            'constraint'        => 5,
-            'unsigned'          =>true,
-            'auto_increment'    =>true
+                'type'              => 'INT',
+                'constraint'        => 5,
+                'auto_increment'    => true
             ],
 
             'nama_jenis'        => [
                 'type'          => 'VARCHAR',
                 'constraint'    => 50,
-                ],
+            ],
             'keterangan'        => [
                 'type'          => 'text',
                 'null'          => true,
-                ],     
+            ],
+
+            'gambar'        => [
+                'type'          => 'VARCHAR',
+                'constraint'    => 255,
+            ],
             'created_at' => [
                 'type' => 'DATETIME',
                 'NULL' => true,
             ],
-            
+
             'updated_at' => [
                 'type' => 'DATETIME',
                 'NULL' => true,
-            ],    
+            ],
         ]);
 
-        $this->forge->addKey('id_jenis',TRUE);
-        $this->forge->createTable('jenis_Wisata',TRUE);
+        $this->forge->addKey('id_jenis', TRUE);
+        $this->forge->createTable('jenis_Wisata', TRUE);
     }
 
     public function down()
@@ -45,4 +49,3 @@ class JenisWisata extends Migration
         $this->forge->dropTable('jenis_Wisata');
     }
 }
-

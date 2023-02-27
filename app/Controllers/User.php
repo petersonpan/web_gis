@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\Madmin;
 use App\Models\Mjenis;
+use App\Models\Mrating;
 use App\Models\Mwisata;
 
 class User extends BaseController
@@ -13,6 +14,7 @@ class User extends BaseController
         $this->Wisatamodel = new Mwisata();
         $this->Adminmodel = new Madmin();
         $this->Jenis = new Mjenis();
+        $this->Rating = new Mrating();
     }
     public function index()
     {
@@ -22,34 +24,47 @@ class User extends BaseController
     {
         $objek   = $this->Wisatamodel
             ->join('jenis_wisata', 'object_wisata.id_jenis = jenis_wisata.id_jenis')
-            ->join('fasilitas', 'object_wisata.id_fasilitas = fasilitas.id_fasilitas')
-            ->join('tempat_wisata', 'object_wisata.id_tempat = tempat_wisata.id_tempat')
-            ->select(['object_wisata.*', 'tempat_wisata.nama_tempat', 'jenis_wisata.nama_jenis', 'fasilitas.keterangan AS nama_fasilitas'])
+            ->select(['object_wisata.*', 'jenis_wisata.nama_jenis'])
+            ->orderBy('object_wisata.id_jenis')
             ->findAll();
+        $jenis   = $this->Wisatamodel
+        ->join('jenis_wisata', 'object_wisata.id_jenis = jenis_wisata.id_jenis', 'right')
+        ->select(['object_wisata.*', 'jenis_wisata.nama_jenis'])
+        ->groupBy('object_wisata.id_jenis')
+        ->orderBy('object_wisata.id_jenis')
+        ->findAll();
+
         $data = [
             'title' => 'Peta Lokasi Wisata',
             'page' => 'map',
             'objek_wisata' => $objek,
-
+            'jenis_wisata' => $jenis,
         ];
         return view('user/map-user', $data);
+    }
+    public function kategori()
+    {
+
+        $data = [
+            'title' => 'Pariwisata Sabu Raijua | Jenis Wisata',
+            'page' => 'objek',
+            'jenis' => $this->Jenis->findAll(),
+
+        ];
+        return view('user/kategori', $data);
     }
     public function objekWisata()
     {
         if ($this->request->getVar('q') != null) {
             $objek   = $this->Wisatamodel
                 ->join('jenis_wisata', 'object_wisata.id_jenis = jenis_wisata.id_jenis')
-                ->join('fasilitas', 'object_wisata.id_fasilitas = fasilitas.id_fasilitas')
-                ->join('tempat_wisata', 'object_wisata.id_tempat = tempat_wisata.id_tempat')
-                ->select(['object_wisata.*', 'tempat_wisata.nama_tempat', 'jenis_wisata.nama_jenis', 'fasilitas.keterangan AS nama_fasilitas'])
+                ->select(['object_wisata.*', 'jenis_wisata.nama_jenis'])
                 ->where('jenis_wisata.id_jenis', $this->request->getVar('q'))
                 ->findAll();
         } else {
             $objek   = $this->Wisatamodel
                 ->join('jenis_wisata', 'object_wisata.id_jenis = jenis_wisata.id_jenis')
-                ->join('fasilitas', 'object_wisata.id_fasilitas = fasilitas.id_fasilitas')
-                ->join('tempat_wisata', 'object_wisata.id_tempat = tempat_wisata.id_tempat')
-                ->select(['object_wisata.*', 'tempat_wisata.nama_tempat', 'jenis_wisata.nama_jenis', 'fasilitas.keterangan AS nama_fasilitas'])
+                ->select(['object_wisata.*', 'jenis_wisata.nama_jenis'])
                 ->findAll();
         }
 
@@ -63,6 +78,21 @@ class User extends BaseController
         ];
         return view('user/objek-wisata', $data);
     }
+
+
+    public function beriRating()
+    {
+        helper(['form', 'url']);
+        $this->Rating->save([
+
+            'id_wisata'    => $this->request->getVar('id_wisata'),
+            'rating'        => $this->request->getVar('rating'),
+            'komentar'        => $this->request->getVar('komentar')
+        ]);
+
+        return redirect()->to('/');
+    }
+
 
     public function login()
     {

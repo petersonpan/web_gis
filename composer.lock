@@ -132,12 +132,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/codeigniter4/shield.git",
-                "reference": "2f01a864e41f6229cbdc6ea48b8eaee3c5d602c0"
+                "reference": "e75a492afbd828412c59865060ee6bd2de8e7be0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codeigniter4/shield/zipball/2f01a864e41f6229cbdc6ea48b8eaee3c5d602c0",
-                "reference": "2f01a864e41f6229cbdc6ea48b8eaee3c5d602c0",
+                "url": "https://api.github.com/repos/codeigniter4/shield/zipball/e75a492afbd828412c59865060ee6bd2de8e7be0",
+                "reference": "e75a492afbd828412c59865060ee6bd2de8e7be0",
                 "shasum": ""
             },
             "require": {
@@ -189,7 +189,7 @@
                 "issues": "https://github.com/codeigniter4/shield/issues",
                 "source": "https://github.com/codeigniter4/shield/tree/develop"
             },
-            "time": "2022-08-21T20:54:51+00:00"
+            "time": "2022-08-26T01:29:21+00:00"
         },
         {
             "name": "kint-php/kint",
@@ -2219,25 +2219,25 @@
         },
         {
             "name": "symfony/deprecation-contracts",
-            "version": "v3.0.2",
+            "version": "v2.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/deprecation-contracts.git",
-                "reference": "26954b3d62a6c5fd0ea8a2a00c0353a14978d05c"
+                "reference": "e8b495ea28c1d97b5e0c121748d6f9b53d075c66"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/26954b3d62a6c5fd0ea8a2a00c0353a14978d05c",
-                "reference": "26954b3d62a6c5fd0ea8a2a00c0353a14978d05c",
+                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/e8b495ea28c1d97b5e0c121748d6f9b53d075c66",
+                "reference": "e8b495ea28c1d97b5e0c121748d6f9b53d075c66",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0.2"
+                "php": ">=7.1"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "3.0-dev"
+                    "dev-main": "2.5-dev"
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -2266,7 +2266,7 @@
             "description": "A generic function and convention to trigger deprecation notices",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/deprecation-contracts/tree/v3.0.2"
+                "source": "https://github.com/symfony/deprecation-contracts/tree/v2.5.2"
             },
             "funding": [
                 {
@@ -2282,7 +2282,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-01-02T09:55:41+00:00"
+            "time": "2022-01-02T09:53:40+00:00"
         },
         {
             "name": "theseer/tokenizer",
